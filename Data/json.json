@@ -1,0 +1,4 @@
+{
+  "connectionstring": "server = . ; database = HotelsManagementSystem; Integrated Security = SSPI;TrustServerCertificate = true;Encrypt = false"
+
+}

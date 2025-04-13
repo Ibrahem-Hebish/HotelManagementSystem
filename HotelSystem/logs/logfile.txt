@@ -1,0 +1,414 @@
+2025-04-11 03:12:06.684 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 03:12:06.692 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 03:12:06.694 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 03:12:06.695 +02:00 [INF] Hosting environment: Development
+2025-04-11 03:12:06.695 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 03:13:49.538 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 03:13:49.546 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 03:13:49.548 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 03:13:49.549 +02:00 [INF] Hosting environment: Development
+2025-04-11 03:13:49.554 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 03:27:48.590 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 03:27:48.598 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 03:27:48.600 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 03:27:48.600 +02:00 [INF] Hosting environment: Development
+2025-04-11 03:27:48.600 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 03:29:44.098 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 03:29:44.107 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 03:29:44.117 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 03:29:44.118 +02:00 [INF] Hosting environment: Development
+2025-04-11 03:29:44.118 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 03:30:42.754 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 03:30:42.762 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 03:30:42.765 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 03:30:42.765 +02:00 [INF] Hosting environment: Development
+2025-04-11 03:30:42.765 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 03:33:45.385 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 03:33:45.393 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 03:33:45.395 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 03:33:45.395 +02:00 [INF] Hosting environment: Development
+2025-04-11 03:33:45.395 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 03:41:40.509 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 03:41:40.517 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 03:41:40.519 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 03:41:40.519 +02:00 [INF] Hosting environment: Development
+2025-04-11 03:41:40.519 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 03:44:07.649 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 03:44:07.657 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 03:44:07.659 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 03:44:07.660 +02:00 [INF] Hosting environment: Development
+2025-04-11 03:44:07.660 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 03:49:55.602 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 03:49:55.609 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 03:49:55.611 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 03:49:55.612 +02:00 [INF] Hosting environment: Development
+2025-04-11 03:49:55.612 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 03:53:12.346 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 03:53:12.354 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 03:53:12.356 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 03:53:12.357 +02:00 [INF] Hosting environment: Development
+2025-04-11 03:53:12.357 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 03:53:55.320 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No service for type 'Services.Repositories.Classes.RoomRepository' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Services.DependencyInjection.<>c.<AddServiceDependencies>b__0_2(IServiceProvider serviceprovider)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method4(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-04-11 03:54:07.092 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 03:54:07.100 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 03:54:07.102 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 03:54:07.102 +02:00 [INF] Hosting environment: Development
+2025-04-11 03:54:07.102 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 03:56:05.592 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No service for type 'Serilog.ILogger' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Services.DependencyInjection.<>c.<AddServiceDependencies>b__0_2(IServiceProvider serviceprovider)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method4(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-04-11 03:56:19.365 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 03:56:19.374 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 03:56:19.379 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 03:56:19.380 +02:00 [INF] Hosting environment: Development
+2025-04-11 03:56:19.380 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 03:56:41.182 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No service for type 'Serilog.ILogger' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Services.DependencyInjection.<>c.<AddServiceDependencies>b__0_2(IServiceProvider serviceprovider)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method4(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-04-11 03:57:29.830 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No service for type 'Serilog.ILogger' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Services.DependencyInjection.<>c.<AddServiceDependencies>b__0_2(IServiceProvider serviceprovider)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method22(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-04-11 03:58:14.471 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 03:58:14.479 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 03:58:14.481 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 03:58:14.481 +02:00 [INF] Hosting environment: Development
+2025-04-11 03:58:14.481 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 04:01:01.306 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 04:01:01.314 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 04:01:01.316 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 04:01:01.316 +02:00 [INF] Hosting environment: Development
+2025-04-11 04:01:01.316 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 04:03:51.702 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 04:03:51.710 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 04:03:51.712 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 04:03:51.712 +02:00 [INF] Hosting environment: Development
+2025-04-11 04:03:51.712 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 04:04:00.073 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Unable to cast object of type 'Services.Decorators.LoggingDecorator`1[Data.Entities.Room]' to type 'Services.Repositories.Interfaces.IRoomRepository'.
+   at Services.DependencyInjection.<>c.<AddServiceDependencies>b__0_2(IServiceProvider serviceprovider) in C:\Users\Super magic\OneDrive\Desktop\HotelSystem\Services\DependencyInjection.cs:line 81
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method4(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-04-11 12:56:27.193 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 12:56:27.205 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 12:56:27.207 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 12:56:27.208 +02:00 [INF] Hosting environment: Development
+2025-04-11 12:56:27.208 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 12:57:03.478 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Unable to cast object of type 'Services.Decorators.LoggingDecorator`1[Data.Entities.Room]' to type 'Services.Repositories.Interfaces.IRoomRepository'.
+   at Services.DependencyInjection.<>c.<AddServiceDependencies>b__0_2(IServiceProvider serviceprovider) in C:\Users\Super magic\OneDrive\Desktop\HotelSystem\Services\DependencyInjection.cs:line 81
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method4(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-04-11 12:58:12.724 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 12:58:12.733 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 12:58:12.735 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 12:58:12.736 +02:00 [INF] Hosting environment: Development
+2025-04-11 12:58:12.736 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 12:58:19.497 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Services.Repositories.Interfaces.IRoomRepository' while attempting to activate 'HotelSystem.Controllers.AuthController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method4(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-04-11 12:59:03.114 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 12:59:03.123 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 12:59:03.127 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 12:59:03.127 +02:00 [INF] Hosting environment: Development
+2025-04-11 12:59:03.127 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 13:17:39.936 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 13:17:39.945 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 13:17:39.948 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 13:17:39.948 +02:00 [INF] Hosting environment: Development
+2025-04-11 13:17:39.948 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 13:19:00.844 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No service for type 'Services.Repositories.Classes.RoomRepository' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Services.DependencyInjection.<>c.<AddServiceDependencies>b__0_2(IServiceProvider serviceprovider) in C:\Users\Super magic\OneDrive\Desktop\HotelSystem\Services\DependencyInjection.cs:line 74
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method4(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-04-11 13:19:36.160 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 13:19:36.170 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 13:19:36.173 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 13:19:36.174 +02:00 [INF] Hosting environment: Development
+2025-04-11 13:19:36.174 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 13:26:44.432 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 13:26:44.441 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 13:26:44.443 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 13:26:44.444 +02:00 [INF] Hosting environment: Development
+2025-04-11 13:26:44.444 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 13:26:50.738 +02:00 [INF] Getting "Data.Entities.Room"s
+2025-04-11 13:27:25.124 +02:00 [INF] "Data.Entities.Room"s is empty
+2025-04-11 13:27:27.882 +02:00 [INF] Got "Data.Entities.Room"s
+2025-04-11 13:27:44.043 +02:00 [INF] Getting "Data.Entities.Room"s
+2025-04-11 13:28:40.565 +02:00 [INF] "Data.Entities.Room"s is empty
+2025-04-11 13:28:51.220 +02:00 [INF] Got "Data.Entities.Room"s
+2025-04-11 13:31:08.762 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 13:31:08.771 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 13:31:08.774 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 13:31:08.774 +02:00 [INF] Hosting environment: Development
+2025-04-11 13:31:08.774 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 13:31:20.534 +02:00 [INF] Getting "Data.Entities.Room"s
+2025-04-11 13:31:56.481 +02:00 [INF] "Data.Entities.Room"s is empty
+2025-04-11 13:31:56.747 +02:00 [INF] Got "Data.Entities.Room"s
+2025-04-11 13:41:43.652 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 13:41:43.662 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 13:41:43.665 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 13:41:43.665 +02:00 [INF] Hosting environment: Development
+2025-04-11 13:41:43.665 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 13:42:02.452 +02:00 [INF] Getting "Data.Entities.Room"s
+2025-04-11 13:42:22.449 +02:00 [INF] "Data.Entities.Room"s is empty
+2025-04-11 13:42:22.764 +02:00 [INF] Got "Data.Entities.Room"s
+2025-04-11 14:09:53.696 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 14:09:53.704 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 14:09:53.707 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 14:09:53.707 +02:00 [INF] Hosting environment: Development
+2025-04-11 14:09:53.707 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 14:11:42.175 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Unable to cast object of type 'Services.Decorators.LoggingDecorator`1[Data.Entities.Room]' to type 'Services.Repositories.Interfaces.IRoomRepository'.
+   at Services.DependencyInjection.<>c.<AddServiceDependencies>b__0_0(IServiceProvider sp) in C:\Users\Super magic\OneDrive\Desktop\HotelSystem\Services\DependencyInjection.cs:line 27
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method4(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-04-11 14:13:51.976 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 14:13:51.992 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 14:13:51.997 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 14:13:51.998 +02:00 [INF] Hosting environment: Development
+2025-04-11 14:13:51.998 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 14:14:02.474 +02:00 [INF] Getting "Data.Entities.Room"s
+2025-04-11 14:14:06.730 +02:00 [INF] "Data.Entities.Room"s is empty
+2025-04-11 14:14:06.730 +02:00 [INF] Got "Data.Entities.Room"s
+2025-04-11 14:14:25.397 +02:00 [INF] Getting "Data.Entities.Room"s
+2025-04-11 14:14:28.191 +02:00 [INF] "Data.Entities.Room"s is empty
+2025-04-11 14:14:28.191 +02:00 [INF] Got "Data.Entities.Room"s
+2025-04-11 19:32:19.447 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 19:32:19.459 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 19:32:19.463 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 19:32:19.464 +02:00 [INF] Hosting environment: Development
+2025-04-11 19:32:19.464 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 19:32:31.251 +02:00 [INF] Getting "Data.Entities.Room"s
+2025-04-11 19:32:34.865 +02:00 [INF] "Data.Entities.Room"s is empty
+2025-04-11 19:32:34.865 +02:00 [INF] Got "Data.Entities.Room"s
+2025-04-11 19:34:18.536 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 19:34:18.546 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 19:34:18.550 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 19:34:18.550 +02:00 [INF] Hosting environment: Development
+2025-04-11 19:34:18.550 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 19:34:43.952 +02:00 [INF] Getting "Data.Entities.Room"s
+2025-04-11 19:34:46.489 +02:00 [INF] "Data.Entities.Room"s is empty
+2025-04-11 19:34:46.490 +02:00 [INF] Got "Data.Entities.Room"s
+2025-04-11 19:36:47.787 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 19:36:47.800 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 19:36:47.803 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 19:36:47.804 +02:00 [INF] Hosting environment: Development
+2025-04-11 19:36:47.804 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 19:36:57.602 +02:00 [INF] Getting "Data.Entities.Room"s
+2025-04-11 19:37:09.827 +02:00 [INF] "Data.Entities.Room"s is empty
+2025-04-11 19:37:09.984 +02:00 [INF] Got "Data.Entities.Room"s
+2025-04-11 19:45:42.184 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-11 19:45:42.193 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-11 19:45:42.195 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-11 19:45:42.196 +02:00 [INF] Hosting environment: Development
+2025-04-11 19:45:42.196 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
+2025-04-11 19:46:05.093 +02:00 [INF] Getting "Data.Entities.Room"s
+2025-04-11 19:46:18.891 +02:00 [INF] "Data.Entities.Room"s is empty
+2025-04-11 19:46:20.164 +02:00 [INF] Got "Data.Entities.Room"s
+2025-04-13 22:10:55.088 +02:00 [INF] Now listening on: https://localhost:7198
+2025-04-13 22:10:55.100 +02:00 [INF] Now listening on: http://localhost:5233
+2025-04-13 22:10:55.103 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-13 22:10:55.103 +02:00 [INF] Hosting environment: Development
+2025-04-13 22:10:55.103 +02:00 [INF] Content root path: C:\Users\Super magic\OneDrive\Desktop\HotelSystem\HotelSystem
