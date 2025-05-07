@@ -1,12 +1,16 @@
-﻿
-namespace Data.Entities;
+﻿namespace Data.Entities;
 
-public class User : IdentityUser<int>
+public class User : IdentityUser
 {
-    public bool Gender { get; set; }
+    public string FirstName { get; set; } = "";
+    public string LastName { get; set; } = "";
+    public UserGender Gender { get; set; }
     public DateOnly BirthDate { get; set; }
-    public string Country { get; set; }
-    public string City { get; set; }
+    public string Country { get; set; } = "";
+    public string City { get; set; } = "";
+    public List<UserToken> UserTokens { get; set; } = [];
 }
+
+
 
 

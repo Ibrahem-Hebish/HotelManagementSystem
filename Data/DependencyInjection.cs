@@ -2,17 +2,19 @@
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddDataDependancies(this IServiceCollection Service)
+    public static IServiceCollection AddDataDependancies(this IServiceCollection Service, IConfiguration configuration)
     {
 
-        Service.AddDbContext<AppDbContext>();
+        Service.AddDbContext<AppDbContext>(opt =>
+        {
+            opt.UseSqlServer(configuration.GetSection("connectionstring").Value);
+        });
 
         Service.AddIdentityCore<User>(o =>
         {
             o.Password.RequireDigit = true;
             o.Password.RequiredLength = 8;
             o.User.RequireUniqueEmail = true;
-            o.SignIn.RequireConfirmedEmail = true;
         })
             .AddRoles<Role>()
             .AddEntityFrameworkStores<AppDbContext>();

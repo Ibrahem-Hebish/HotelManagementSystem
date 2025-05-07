@@ -2,8 +2,17 @@
 
 public static class AppExtention
 {
-    public static void ConfigureAsync(this WebApplication app)
+    public static async Task ConfigureAsync(this WebApplication app)
     {
+        using (var scope = app.Services.CreateScope())
+        {
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+            var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<Role>>();
+
+            await Seeder.SeedRoles(roleManager);
+            await Seeder.SeedUsers(userManager);
+
+        }
 
         if (app.Environment.IsDevelopment())
         {
@@ -11,11 +20,17 @@ public static class AppExtention
             app.UseSwaggerUI();
         }
 
+        app.UseMiddleware<ExeptionHandlerMiddleware>();
+
         app.UseHttpsRedirection();
+
+        app.UseMiddleware<ResponseTimeMiddleware>();
 
         app.UseRouting();
 
         app.UseCors("AllowAll");
+
+        app.UseRateLimiter();
 
         app.UseAuthentication();
 

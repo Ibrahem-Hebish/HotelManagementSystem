@@ -1,18 +1,20 @@
-using Serilog;
-
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+builder.Configuration
+    .AddUserSecrets<Program>(true);
 
 builder.Host.UseSerilog();
 
+builder.Services.AddDataDependancies(builder.Configuration);
+
+builder.Services.AddServiceDependencies(builder.Configuration);
+
+builder.Services.AddCore();
+
 builder.Services.AddWeb();
-
-builder.Services.AddServiceDependencies();
-
-builder.Services.AddDataDependancies();
-
 
 var app = builder.Build();
 
-app.ConfigureAsync();
+await app.ConfigureAsync();
 
 app.Run();

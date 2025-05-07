@@ -1,104 +1,65 @@
 ﻿namespace Services.GenericRepository;
 
-public class Repository<T>(AppDbContext context) : IRepository<T> where T : class
+public class Repository<T>(AppDbContext context) : IRepository<T> where T : class, IEntity
 {
-    public async Task<T> GetByIdAsync(int id, Tracking tracking)
+    protected readonly AppDbContext context = context;
+    protected readonly DbSet<T> dbSet = context.Set<T>();
+    public virtual async Task<T> GetByIdAsync(int id, Tracking tracking,
+                                       CancellationToken cancellationToken)
     {
         if (tracking == Tracking.AsTracking)
         {
-            var entity = await context.Set<T>()
-                                       .FindAsync(id);
+            var entity = await dbSet.FindAsync([id], cancellationToken);
 
             return entity!;
         }
         else
         {
-            var entity = await context.Set<T>()
-                                       .AsNoTracking()
-                                        .SingleOrDefaultAsync(x => EF.Property<int>(x, "Id") == id); ;
+            var entity = await dbSet.AsNoTracking()
+                                        .SingleOrDefaultAsync(x => x.Id == id, cancellationToken);
 
             return entity!;
         }
     }
-    public IQueryable<T> GetAsync(Tracking tracking)
+    public virtual async Task<List<T>> GetAsync(Tracking tracking)
     {
         if (tracking == Tracking.AsTracking)
         {
-            var entities = context.Set<T>();
+            var entities = dbSet;
 
-            return entities;
+            await Task.CompletedTask;
+
+            return await entities.ToListAsync();
         }
         else
         {
-            var entities = context.Set<T>().AsNoTracking();
+            var entities = await dbSet.AsNoTracking().ToListAsync();
 
             return entities;
         }
     }
-    public IQueryable<T> GetAsyncWhere(Expression<Func<T, bool>> filter, Tracking tracking)
+    public virtual async Task<bool> UpdateAsync(T entity, int id)
     {
-        if (tracking == Tracking.AsTracking)
-        {
-            var entities = context.Set<T>()
-                                   .Where(filter);
+        dbSet.Update(entity);
 
-            return entities;
-        }
-        else
-        {
-            var entities = context.Set<T>()
-                                   .AsNoTracking()
-                                    .Where(filter);
-
-            return entities;
-        }
+        return await Task.FromResult(true);
     }
-    public async Task<bool> UpdateAsync(T entity, int id)
+    public virtual async Task<bool> DeleteAsync(T entity, int id)
     {
-        context.Set<T>().Update(entity);
+        dbSet.Remove(entity);
 
-        await SaveChangesAsync();
+        return await Task.FromResult(true);
+    }
+    public virtual async Task<bool> DeleteRangeAsync(IEnumerable<T> entities)
+    {
+        dbSet.RemoveRange(entities);
+
+        return await Task.FromResult(true);
+    }
+    public virtual async Task<bool> CreateAsync(T entity, CancellationToken cancellationToken)
+    {
+        await dbSet.AddAsync(entity, cancellationToken);
 
         return true;
-    }
-    public async Task<bool> DeleteAsync(T entity, int id)
-    {
-        context.Set<T>().Remove(entity);
-
-        await SaveChangesAsync();
-
-        return true;
-    }
-    public async Task<bool> DeleteRangeAsync(IEnumerable<T> entities)
-    {
-        context.Set<T>().RemoveRange(entities);
-
-        await SaveChangesAsync();
-
-        return true;
-    }
-    public async Task<T> CreateAsync(T entity, int id)
-    {
-        var createdEntery = await context.Set<T>().AddAsync(entity);
-
-        await context.SaveChangesAsync();
-
-        return createdEntery.Entity;
-    }
-    public async Task BeginTransaction()
-    {
-        await context.Database.BeginTransactionAsync();
-    }
-    public async Task CommitTransaction()
-    {
-        await context.Database.CommitTransactionAsync();
-    }
-    public async Task RollBack()
-    {
-        await context.Database.RollbackTransactionAsync();
-    }
-    public async Task SaveChangesAsync()
-    {
-        await context.SaveChangesAsync();
     }
 }

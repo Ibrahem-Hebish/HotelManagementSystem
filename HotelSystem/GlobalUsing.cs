@@ -1,5 +1,22 @@
-﻿global using Data;
+﻿global using Asp.Versioning;
+global using Core;
+global using Core.Facilities.Commands;
+global using Core.Facilities.Queries;
+global using Core.Users.Commands;
+global using Core.Users.Queries;
+global using Data;
+global using Data.Entities;
 global using HotelSystem;
+global using HotelSystem.CustomAttribute;
+global using HotelSystem.Middlewares;
+global using MediatR;
+global using Microsoft.AspNetCore.Authorization;
+global using Microsoft.AspNetCore.Identity;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.AspNetCore.RateLimiting;
+global using Serilog;
 global using Services;
-
-
+global using servicess;
+global using System.ComponentModel.DataAnnotations;
+global using System.Text.Json;
+global using System.Threading.RateLimiting;

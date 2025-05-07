@@ -1,7 +1,7 @@
 ﻿
 namespace Data.Entities;
 
-public class Role : IdentityRole<int>
+public class Role : IdentityRole
 {
 
 }

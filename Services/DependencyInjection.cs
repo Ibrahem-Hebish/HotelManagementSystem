@@ -1,31 +1,99 @@
-﻿namespace Services;
+﻿using Services.Repositories.Classes;
+
+namespace servicess;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddServiceDependencies(this IServiceCollection service)
+    public static IServiceCollection AddServiceDependencies(this IServiceCollection services, IConfiguration configuration)
     {
-        var configuration = new ConfigurationBuilder()
-                                   .AddJsonFile("ServiceSettings.json")
-                                    .Build();
-        service.AddSerilog();
+
+        //var configuration = new ConfigurationBuilder()
+        //                           .AddJsonFile("ServiceSettings.json")
+        //                           .AddUserSecrets(typeof(AuthenticationService).Assembly)
+        //                           .Build();
+
+        //services.AddSingleton<IConfiguration>(configuration);
+
+        var signingKey = configuration["jwtsigningkey"];
+
+        services.AddSerilog();
 
         Log.Logger = new LoggerConfiguration()
                          .ReadFrom.Configuration(configuration)
                          .CreateLogger();
 
 
-        service.AddMemoryCache();
+        services.AddMemoryCache();
 
-        service.AddTransient(typeof(IRepository<>), typeof(Repository<>));
-        service.AddTransient(typeof(IRepository<Room>), typeof(Repository<Room>));
-        service.AddTransient(typeof(IRepository<Hotel>), typeof(Repository<Hotel>));
-        service.AddTransient(typeof(IRepository<Customer>), typeof(Repository<Customer>));
-        service.AddTransient(typeof(IRepository<Facilitiy>), typeof(Repository<Facilitiy>));
-        service.AddTransient(typeof(IRepository<Reservation>), typeof(Repository<Reservation>));
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-        service.Decorate(typeof(IRepository<>), typeof(CachingDecorator<>));
-        service.Decorate(typeof(IRepository<>), typeof(LoggingDecorator<>));
+        services.Decorate<IUnitOfWork, Logger>();
 
-        return service;
+        services.Configure<EmailSettings>(configuration.GetSection("Email"));
+
+        services.AddTransient<IEmailService, EmailService>();
+
+
+        services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+        services.AddScoped(typeof(IRepository<Room>), typeof(Repository<Room>));
+        services.AddScoped(typeof(IRepository<Hotel>), typeof(Repository<Hotel>));
+        services.AddScoped(typeof(IRepository<Customer>), typeof(Repository<Customer>));
+        services.AddScoped(typeof(IRepository<Facilitiy>), typeof(Repository<Facilitiy>));
+        services.AddScoped(typeof(IRepository<Reservation>), typeof(Repository<Reservation>));
+        services.AddScoped(typeof(IRepository<UserToken>), typeof(Repository<UserToken>));
+
+
+        services.Decorate(typeof(IRepository<>), typeof(CachingDecorator<>));
+        services.Decorate(typeof(IRepository<>), typeof(LoggingDecorator<>));
+
+        services.AddScoped<IRoomRepository, RoomRepository>();
+
+        services.Configure<JwtOptions>(configuration.GetSection("jwt"));
+
+        var jwt = configuration.GetSection("jwt").Get<JwtOptions>();
+        services.AddScoped<IAuthenticationService, AuthenticationService>();
+
+        services.AddAuthentication()
+                .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, opt =>
+                {
+                    opt.SaveToken = true;
+
+                    opt.TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidateIssuer = true,
+                        ValidIssuer = jwt!.Issuer,
+                        ValidateAudience = true,
+                        ValidAudience = jwt!.Audience,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(
+                               Encoding.UTF8.GetBytes(configuration["jwtsigningkey"]!)),
+                    };
+                });
+
+
+        services.AddScoped<IAuthorizationHandler, GreaterThanHandler>();
+        services.AddAuthorization(opt =>
+        {
+            opt.AddPolicy("Egypt", builder =>
+            {
+                builder.RequireAssertion(context =>
+                {
+                    var country = context.User.FindFirst("Country");
+
+                    if (country is null)
+                        return false;
+
+                    return country.Value == "Egypt";
+                });
+            });
+
+            opt.AddPolicy("GreaterThan18", builder =>
+            {
+                builder.AddRequirements(new GreaterthanReqirment(18));
+            });
+        });
+
+        return services;
     }
 }

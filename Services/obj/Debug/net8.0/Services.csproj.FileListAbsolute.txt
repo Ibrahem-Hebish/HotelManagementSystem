@@ -15,3 +15,4 @@ C:\Users\Super magic\OneDrive\Desktop\HotelSystem\Services\bin\Debug\net8.0\Data
 C:\Users\Super magic\OneDrive\Desktop\HotelSystem\Services\bin\Debug\net8.0\Data.pdb
 C:\Users\Super magic\OneDrive\Desktop\HotelSystem\Services\obj\Debug\net8.0\Services.csproj.CopyComplete
 C:\Users\Super magic\OneDrive\Desktop\HotelSystem\Services\bin\Debug\net8.0\ServiceSettings.json
+C:\Users\Super magic\OneDrive\Desktop\HotelSystem\Services\obj\Debug\net8.0\Services.sourcelink.json

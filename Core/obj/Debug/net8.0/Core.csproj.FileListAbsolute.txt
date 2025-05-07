@@ -17,3 +17,4 @@ C:\Users\Super magic\OneDrive\Desktop\HotelSystem\Core\obj\Debug\net8.0\refint\C
 C:\Users\Super magic\OneDrive\Desktop\HotelSystem\Core\obj\Debug\net8.0\Core.pdb
 C:\Users\Super magic\OneDrive\Desktop\HotelSystem\Core\obj\Debug\net8.0\ref\Core.dll
 C:\Users\Super magic\OneDrive\Desktop\HotelSystem\Core\bin\Debug\net8.0\ServiceSettings.json
+C:\Users\Super magic\OneDrive\Desktop\HotelSystem\Core\obj\Debug\net8.0\Core.sourcelink.json
