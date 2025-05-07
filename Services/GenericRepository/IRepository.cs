@@ -1,16 +1,11 @@
 ﻿namespace Services.GenericRepository;
 
-public interface IRepository<T> where T : class
+public interface IRepository<T> where T : class, IEntity
 {
-    Task<T> GetByIdAsync(int id, Tracking tracking);
-    IQueryable<T> GetAsync(Tracking tracking);
-    IQueryable<T> GetAsyncWhere(Expression<Func<T, bool>> filter, Tracking tracking);
+    Task<T> GetByIdAsync(int id, Tracking tracking, CancellationToken cancellationToken);
+    Task<List<T>> GetAsync(Tracking tracking);
     Task<bool> UpdateAsync(T entity, int id);
     Task<bool> DeleteAsync(T entity, int id);
     Task<bool> DeleteRangeAsync(IEnumerable<T> entities);
-    Task<T> CreateAsync(T entity, int id);
-    Task SaveChangesAsync();
-    Task BeginTransaction();
-    Task CommitTransaction();
-    Task RollBack();
+    Task<bool> CreateAsync(T entity, CancellationToken cancellationToken);
 }

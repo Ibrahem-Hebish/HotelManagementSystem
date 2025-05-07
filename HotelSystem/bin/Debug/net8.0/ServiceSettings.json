@@ -1,6 +1,12 @@
 {
+  "jwt": {
+    "Issuer": "HotelManagementSystemProject",
+    "Audience": "http://127.0.0.1:5500",
+    "LifeTime": 3
+  },
+
   "Serilog": {
-    "Using": [ "Serilog.Sinks.MSSqlServer", "Serilog.Sinks.File" ],
+    "Using": [ "Serilog.Sinks.MSSqlServer", "Serilog.Sinks.Console" ],
     "MinimumLevel": {
       "Default": "Information",
       "Override": {
@@ -9,10 +15,7 @@
     },
     "WriteTo": [
       {
-        "Name": "File",
-        "Args": {
-          "path": "./logs/logfile.txt"
-        }
+        "Name": "Console"
       },
       {
         "Name": "MSSqlServer",
@@ -23,5 +26,13 @@
         }
       }
     ]
+  },
+
+  "Email": {
+    "Port": 587,
+    "ClientEmail": "Smtp.gmail.com",
+    "Email": "ibrahemhebish@gmail.com",
+    "Name": "Ibrahem Hebish"
+
   }
 }

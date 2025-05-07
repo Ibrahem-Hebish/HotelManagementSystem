@@ -2,9 +2,7 @@
 
 namespace Data.DBContext;
 
-public class AppDbContext : IdentityDbContext<User, Role, int, IdentityUserClaim<int>,
-    IdentityUserRole<int>, IdentityUserLogin<int>
-        , IdentityRoleClaim<int>, IdentityUserToken<int>>
+public class AppDbContext : IdentityDbContext<User, Role, string>
 {
     public DbSet<Hotel> Hotels { get; set; }
     public DbSet<Room> Rooms { get; set; }
@@ -16,19 +14,18 @@ public class AppDbContext : IdentityDbContext<User, Role, int, IdentityUserClaim
     public DbSet<Role> Roles { get; set; }
     public DbSet<Reservation> Reservations { get; set; }
 
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+    {
+
+    }
+    public AppDbContext() : base()
+    {
+
+    }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
-
-        var configuration = new ConfigurationBuilder()
-            .AddJsonFile("json.json")
-            .Build();
-
-        var connectionstring = configuration
-            .GetSection("connectionstring")
-            .Value;
-
-        optionsBuilder.UseSqlServer(connectionstring);
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -11,3 +11,4 @@ C:\Users\Super magic\OneDrive\Desktop\HotelSystem\Data\obj\Debug\net8.0\refint\D
 C:\Users\Super magic\OneDrive\Desktop\HotelSystem\Data\obj\Debug\net8.0\Data.pdb
 C:\Users\Super magic\OneDrive\Desktop\HotelSystem\Data\obj\Debug\net8.0\ref\Data.dll
 C:\Users\Super magic\OneDrive\Desktop\HotelSystem\Data\bin\Debug\net8.0\json.json
+C:\Users\Super magic\OneDrive\Desktop\HotelSystem\Data\obj\Debug\net8.0\Data.sourcelink.json

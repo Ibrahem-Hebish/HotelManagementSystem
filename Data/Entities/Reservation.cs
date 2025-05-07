@@ -1,6 +1,6 @@
 ﻿namespace Data.Entities;
 
-public class Reservation
+public class Reservation : IEntity
 {
     public int Id { get; set; }
     public DateTime CheckInDate { get; set; }

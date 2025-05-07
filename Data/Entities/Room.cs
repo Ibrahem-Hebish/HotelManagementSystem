@@ -1,6 +1,6 @@
 ﻿namespace Data.Entities;
 
-public class Room
+public class Room : IEntity
 {
     public int Id { get; set; }
     public RoomType Type { get; set; }

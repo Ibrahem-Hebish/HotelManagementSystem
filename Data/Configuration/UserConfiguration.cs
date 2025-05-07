@@ -13,3 +13,4 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.ToTable(nameof(User));
     }
 }
+

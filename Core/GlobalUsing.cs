@@ -1,1 +1,25 @@
-﻿
+﻿global using Core.Facilities.Commands;
+global using Core.Facilities.Queries;
+global using Core.GenericRespons;
+global using Core.Mediator.MediatorNotification;
+global using Core.Users.Commands;
+global using Core.Users.Dtos;
+global using Core.Users.Queries;
+global using Core.Validation;
+global using Data.Entities;
+global using FluentValidation;
+global using Mapster;
+global using MediatR;
+global using Microsoft.AspNetCore.Http;
+global using Microsoft.AspNetCore.Identity;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.Caching.Memory;
+global using Microsoft.Extensions.DependencyInjection;
+global using Serilog;
+global using Services.Authentication;
+global using Services.Email;
+global using Services.Enums;
+global using Services.GenericRepository;
+global using Services.UnitOfWork;
+global using System.Net;
+
