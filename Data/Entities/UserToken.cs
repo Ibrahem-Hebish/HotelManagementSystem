@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace Data.Entities;
+﻿namespace Data.Entities;
 
 public class UserToken : IEntity
 {
@@ -13,7 +11,6 @@ public class UserToken : IEntity
     public bool IsUsed { get; set; }
     public bool IsExpired { get; set; }
     public string Userid { get; set; } = "";
-    [JsonIgnore]
     public virtual User User { get; set; }
 
 

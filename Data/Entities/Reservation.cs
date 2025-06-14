@@ -12,9 +12,9 @@ public class Reservation : IEntity
     public int RoomId { get; set; }
     [ForeignKey(nameof(RoomId))]
     public Room Room { get; set; }
-    public int CustomerId { get; set; }
+    public string CustomerId { get; set; }
     [ForeignKey(nameof(CustomerId))]
-    public Customer Customer { get; set; }
+    public User Customer { get; set; }
     public int HotelId { get; set; }
     [ForeignKey(nameof(HotelId))]
     public Hotel Hotel { get; set; }

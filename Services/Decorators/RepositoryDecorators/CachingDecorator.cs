@@ -6,39 +6,6 @@ public class CachingDecorator<T>(
 
     : IRepository<T> where T : class, IEntity
 {
-    public async Task<List<T>> GetAsync(Tracking tracking)
-    {
-        var cachedKey = $"{typeof(T).Name}";
-
-        if (!cache.TryGetValue(cachedKey, out List<T>? result))
-        {
-            var entities = await inner.GetAsync(tracking);
-
-            if (entities is not null && entities.Count > 0)
-                cache.Set(cachedKey, entities, Set_memoryCacheOptions());
-
-            return entities!;
-        }
-
-        return result!;
-    }
-    public async Task<T> GetByIdAsync(int id, Tracking tracking,
-                                 CancellationToken cancellationToken)
-    {
-        var cachedKey = $"{typeof(T).Name}-{id}";
-
-        if (!cache.TryGetValue(cachedKey, out T? result))
-        {
-            var entity = await inner.GetByIdAsync(id, tracking, cancellationToken);
-
-            if (entity is not null)
-                cache.Set(cachedKey, entity, Set_memoryCacheOptions());
-
-            return entity!;
-        }
-
-        return result!;
-    }
     public async Task<bool> CreateAsync(T entity, CancellationToken cancellationToken)
     {
         var cachedKey = $"{typeof(T).Name}";

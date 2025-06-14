@@ -7,10 +7,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\Facilities\Dtos\**" />
+    <Compile Remove="Features\Hotels\Commands\**" />
+    <Compile Remove="Features\Reservations\**" />
+    <Compile Remove="HotelEvaluations\**" />
+    <EmbeddedResource Remove="Features\Facilities\Dtos\**" />
+    <EmbeddedResource Remove="Features\Hotels\Commands\**" />
+    <EmbeddedResource Remove="Features\Reservations\**" />
+    <EmbeddedResource Remove="HotelEvaluations\**" />
+    <None Remove="Features\Facilities\Dtos\**" />
+    <None Remove="Features\Hotels\Commands\**" />
+    <None Remove="Features\Reservations\**" />
+    <None Remove="HotelEvaluations\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
     <PackageReference Include="Mapster" Version="7.4.0" />
     <PackageReference Include="Mapster.DependencyInjection" Version="1.0.1" />
     <PackageReference Include="MediatR" Version="12.5.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.16" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,10 +35,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Facilities\Dtos\" />
-    <Folder Include="Rooms\Commands\" />
-    <Folder Include="Rooms\Handlers\Commands\" />
-    <Folder Include="Rooms\Validators\" />
+    <Folder Include="Features\Hotels\Handlers\Commands\" />
+    <Folder Include="Features\Rooms\Handlers\Commands\" />
+    <Folder Include="Features\Rooms\Commands\" />
   </ItemGroup>
 
 </Project>

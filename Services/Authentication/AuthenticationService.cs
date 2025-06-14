@@ -92,7 +92,8 @@ public class AuthenticationService(
             userClaims.Add(new Claim(ClaimTypes.Role, role));
 
         userClaims.Add(new Claim(ClaimTypes.MobilePhone, user.PhoneNumber!));
-        userClaims.Add(new Claim(ClaimTypes.NameIdentifier, user.UserName!));
+        userClaims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id!));
+        userClaims.Add(new Claim(ClaimTypes.Name, user.UserName!));
         userClaims.Add(new Claim(ClaimTypes.Email, user.Email!));
         userClaims.Add(new Claim(ClaimTypes.Country, user.Country!));
         userClaims.Add(new Claim(ClaimTypes.DateOfBirth, user.BirthDate!.ToShortDateString()));

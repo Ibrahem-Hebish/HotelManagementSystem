@@ -22,45 +22,6 @@ namespace Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Data.Entities.Customer", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateOnly>("BirthDate")
-                        .HasColumnType("date");
-
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Country")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Gender")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Customer", (string)null);
-                });
-
             modelBuilder.Entity("Data.Entities.Facilitiy", b =>
                 {
                     b.Property<int>("Id")
@@ -76,6 +37,23 @@ namespace Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Facilitiy", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Free Wi-Fi"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Swimming Pool"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Gym"
+                        });
                 });
 
             modelBuilder.Entity("Data.Entities.Hotel", b =>
@@ -94,6 +72,12 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
@@ -109,6 +93,56 @@ namespace Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Hotel", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            City = "Los Angeles",
+                            Country = "USA",
+                            IsDeleted = false,
+                            Name = "Hotel California",
+                            Phone = "+1 800 123 4567",
+                            Street = "123 Sunset Blvd"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            City = "Zubrowka",
+                            Country = "Europe",
+                            IsDeleted = false,
+                            Name = "The Grand Budapest Hotel",
+                            Phone = "+48 123 456 789",
+                            Street = "456 Grand St"
+                        });
+                });
+
+            modelBuilder.Entity("Data.Entities.HotelEvaluations", b =>
+                {
+                    b.Property<int>("HotelId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Rate")
+                        .HasColumnType("int");
+
+                    b.HasKey("HotelId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("HotelEvaluations", null, t =>
+                        {
+                            t.HasCheckConstraint("CK_HotelEvaluations_Rate", "Rate >= 0 AND Rate <= 5");
+                        });
                 });
 
             modelBuilder.Entity("Data.Entities.Photo", b =>
@@ -147,8 +181,9 @@ namespace Data.Migrations
                     b.Property<DateTime>("CheckOutDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CustomerId")
-                        .HasColumnType("int");
+                    b.Property<string>("CustomerId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("FoodServiceType")
                         .HasColumnType("int");
@@ -217,6 +252,9 @@ namespace Data.Migrations
                     b.Property<decimal>("Area")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(800)");
 
@@ -226,11 +264,19 @@ namespace Data.Migrations
                     b.Property<int>("HotelId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<decimal>("PricePerNight")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
+
+                    b.Property<decimal>("TotalPrice")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("decimal(18,2)")
+                        .HasComputedColumnSql("PricePerNight * (1 - DiscountPercentage / 100.0)");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");
@@ -242,6 +288,34 @@ namespace Data.Migrations
                     b.ToTable("Room", null, t =>
                         {
                             t.HasCheckConstraint("chk_Area_Must_Be_Greater_than_6", "Area > 6");
+                        });
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Area = 30m,
+                            Description = "Deluxe Room with sea view",
+                            DiscountPercentage = 0,
+                            HotelId = 1,
+                            IsDeleted = false,
+                            PricePerNight = 150.00m,
+                            Status = 0,
+                            TotalPrice = 0m,
+                            Type = 3
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Area = 25m,
+                            Description = "Standard Room with city view",
+                            DiscountPercentage = 0,
+                            HotelId = 2,
+                            IsDeleted = false,
+                            PricePerNight = 100.00m,
+                            Status = 0,
+                            TotalPrice = 0m,
+                            Type = 0
                         });
                 });
 
@@ -258,6 +332,23 @@ namespace Data.Migrations
                     b.HasIndex("RoomId");
 
                     b.ToTable("RoomFacilities", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            FacilityId = 1,
+                            RoomId = 1
+                        },
+                        new
+                        {
+                            FacilityId = 2,
+                            RoomId = 1
+                        },
+                        new
+                        {
+                            FacilityId = 1,
+                            RoomId = 2
+                        });
                 });
 
             modelBuilder.Entity("Data.Entities.User", b =>
@@ -275,6 +366,9 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -282,6 +376,9 @@ namespace Data.Migrations
                     b.Property<string>("Country")
                         .IsRequired()
                         .HasColumnType("nvarchar(30)");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -296,6 +393,9 @@ namespace Data.Migrations
 
                     b.Property<int>("Gender")
                         .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -495,6 +595,25 @@ namespace Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Data.Entities.HotelEvaluations", b =>
+                {
+                    b.HasOne("Data.Entities.Hotel", "Hotel")
+                        .WithMany("HotelEvaluations")
+                        .HasForeignKey("HotelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Data.Entities.User", "User")
+                        .WithMany("HotelEvaluations")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Hotel");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Data.Entities.Photo", b =>
                 {
                     b.HasOne("Data.Entities.Room", "Room")
@@ -508,7 +627,7 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Data.Entities.Reservation", b =>
                 {
-                    b.HasOne("Data.Entities.Customer", "Customer")
+                    b.HasOne("Data.Entities.User", "Customer")
                         .WithMany("Reservations")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -625,11 +744,6 @@ namespace Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Data.Entities.Customer", b =>
-                {
-                    b.Navigation("Reservations");
-                });
-
             modelBuilder.Entity("Data.Entities.Facilitiy", b =>
                 {
                     b.Navigation("RoomFacilities");
@@ -637,6 +751,8 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Data.Entities.Hotel", b =>
                 {
+                    b.Navigation("HotelEvaluations");
+
                     b.Navigation("Reservations");
 
                     b.Navigation("Rooms");
@@ -653,6 +769,10 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Data.Entities.User", b =>
                 {
+                    b.Navigation("HotelEvaluations");
+
+                    b.Navigation("Reservations");
+
                     b.Navigation("UserTokens");
                 });
 #pragma warning restore 612, 618

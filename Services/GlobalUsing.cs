@@ -1,5 +1,6 @@
 ﻿global using Data.DBContext;
 global using Data.Entities;
+global using Data.Enums;
 global using MailKit.Net.Smtp;
 global using MailKit.Security;
 global using Microsoft.AspNetCore.Authentication.JwtBearer;

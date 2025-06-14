@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\HotelSystem\\HotelSystem.csproj": {}
+    "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\HotelSystem\\HotelSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\Core\\Core.csproj": {
+    "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\Core\\Core.csproj",
+        "projectPath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\Super magic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\Core\\obj\\",
+        "outputPath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Super magic\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\Data\\Data.csproj": {
-                "projectPath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\Data\\Data.csproj"
+              "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\Data\\Data.csproj": {
+                "projectPath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\Data\\Data.csproj"
               },
-              "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\Services\\Services.csproj": {
-                "projectPath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\Services\\Services.csproj"
+              "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\Services\\Services.csproj": {
+                "projectPath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\Services\\Services.csproj"
               }
             }
           }
@@ -62,6 +62,10 @@
             "MediatR": {
               "target": "Package",
               "version": "[12.5.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[8.0.16, )"
             }
           },
           "imports": [
@@ -84,14 +88,14 @@
         }
       }
     },
-    "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\Data\\Data.csproj": {
+    "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\Data\\Data.csproj",
+        "projectUniqueName": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\Data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\Data\\Data.csproj",
+        "projectPath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\Data\\Data.csproj",
         "packagesPath": "C:\\Users\\Super magic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\Data\\obj\\",
+        "outputPath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Super magic\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -120,6 +124,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.3.1, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.14, )"
@@ -153,14 +161,14 @@
         }
       }
     },
-    "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\HotelSystem\\HotelSystem.csproj": {
+    "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\HotelSystem\\HotelSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\HotelSystem\\HotelSystem.csproj",
+        "projectUniqueName": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\HotelSystem\\HotelSystem.csproj",
         "projectName": "HotelSystem",
-        "projectPath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\HotelSystem\\HotelSystem.csproj",
+        "projectPath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\HotelSystem\\HotelSystem.csproj",
         "packagesPath": "C:\\Users\\Super magic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\HotelSystem\\obj\\",
+        "outputPath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\HotelSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Super magic\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -177,8 +185,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\Core\\Core.csproj"
+              "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\Core\\Core.csproj"
               }
             }
           }
@@ -204,6 +212,10 @@
             "Microsoft.AspNetCore.Authentication.Google": {
               "target": "Package",
               "version": "[8.0.14, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[8.0.16, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -243,14 +255,14 @@
         }
       }
     },
-    "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\Services\\Services.csproj": {
+    "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\Services\\Services.csproj",
+        "projectUniqueName": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\Services\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\Services\\Services.csproj",
+        "projectPath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\Services\\Services.csproj",
         "packagesPath": "C:\\Users\\Super magic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\Services\\obj\\",
+        "outputPath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Super magic\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -267,8 +279,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\Data\\Data.csproj": {
-                "projectPath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelSystem\\Data\\Data.csproj"
+              "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\Data\\Data.csproj": {
+                "projectPath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\Data\\Data.csproj"
               }
             }
           }
@@ -283,6 +295,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Ardalis.Specification": {
+              "target": "Package",
+              "version": "[9.2.0, )"
+            },
+            "Ardalis.Specification.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.2.0, )"
+            },
             "MailKit": {
               "target": "Package",
               "version": "[4.12.0, )"

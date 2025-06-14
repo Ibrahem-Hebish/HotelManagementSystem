@@ -1,15 +1,7 @@
-﻿global using Core.Facilities.Commands;
-global using Core.Facilities.Queries;
-global using Core.GenericRespons;
+﻿global using Core.GenericRespons;
 global using Core.Mediator.MediatorNotification;
 global using Core.Mediator.MediatorPipelines.Commands;
 global using Core.Mediator.MediatorPipelines.Query;
-global using Core.Rooms;
-global using Core.Rooms.Dtos;
-global using Core.Rooms.Queries;
-global using Core.Users.Commands;
-global using Core.Users.Dtos;
-global using Core.Users.Queries;
 global using Core.Validation;
 global using Data.Entities;
 global using FluentValidation;
@@ -30,3 +22,5 @@ global using Services.GenericRepository;
 global using Services.Repositories.Interfaces;
 global using Services.UnitOfWork;
 global using System.Net;
+
+

@@ -1,9 +1,14 @@
-﻿namespace Core;
+﻿using Core.Features.Facilities.Queries;
+using Core.Features.Hotels;
+using Core.Features.Rooms;
+
+namespace Core;
 
 public static class DependencyInjection
 {
     public static IServiceCollection AddCore(this IServiceCollection services)
     {
+
         services.AddMediatR(opt =>
         {
             opt.RegisterServicesFromAssembly(typeof(GetFacilityById).Assembly);
@@ -17,6 +22,7 @@ public static class DependencyInjection
         services.AddMapster();
 
         RoomMapping.Configure();
+        HotelMapping.Configure();
 
         services.AddHttpContextAccessor();
 

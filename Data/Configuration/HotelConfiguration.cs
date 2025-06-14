@@ -16,6 +16,31 @@ public class HotelConfiguration : IEntityTypeConfiguration<Hotel>
         builder.Property(x => x.Street)
             .HasColumnType("nvarchar(100)");
 
+        builder.HasQueryFilter(x => !x.IsDeleted);
+
+        builder.HasData(
+                        new Hotel
+                        {
+                            Id = 1,
+                            Name = "Hotel California",
+                            Phone = "+1 800 123 4567",
+                            Country = "USA",
+                            City = "Los Angeles",
+                            Street = "123 Sunset Blvd",
+                            IsDeleted = false
+                        },
+                        new Hotel
+                        {
+                            Id = 2,
+                            Name = "The Grand Budapest Hotel",
+                            Phone = "+48 123 456 789",
+                            Country = "Europe",
+                            City = "Zubrowka",
+                            Street = "456 Grand St",
+                            IsDeleted = false
+                        }
+                                );
+
         builder.ToTable(nameof(Hotel));
     }
 }

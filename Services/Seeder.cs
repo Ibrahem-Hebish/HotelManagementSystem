@@ -1,4 +1,6 @@
-﻿namespace Services;
+﻿using Data.Enums;
+
+namespace Services;
 
 public static class Seeder
 {
@@ -7,7 +9,7 @@ public static class Seeder
         if (!roleManager.Roles.Any())
         {
             await roleManager.CreateAsync(new Role { Name = "Admin" });
-            await roleManager.CreateAsync(new Role { Name = "User" });
+            await roleManager.CreateAsync(new Role { Name = "Customer" });
             await roleManager.CreateAsync(new Role { Name = "Vendor" });
         }
     }
@@ -29,10 +31,28 @@ public static class Seeder
                 BirthDate = new DateOnly(2001, 1, 22),
             };
 
+            User user2 = new()
+            {
+                FirstName = "Ibrahem",
+                LastName = "Hebish",
+                UserName = "Ibrahem_Ahmed",
+                Email = "ibrahemhebish777@gmail.com",
+                PhoneNumber = "01224157270",
+                Country = "Egypt",
+                City = "Elmahalla",
+                Gender = UserGender.Male,
+                BirthDate = new DateOnly(2001, 1, 22),
+            };
+
             var result = await userManager.CreateAsync(user, "Hema123#");
 
             if (result.Succeeded)
                 await userManager.AddToRoleAsync(user, "Admin");
+
+            var result2 = await userManager.CreateAsync(user2, "Hema123#");
+
+            if (result2.Succeeded)
+                await userManager.AddToRoleAsync(user2, "Customer");
         }
     }
 }

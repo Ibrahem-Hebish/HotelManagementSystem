@@ -1,4 +1,7 @@
-﻿namespace HotelSystem.Controllers.V1;
+﻿using Core.Features.Users.Commands;
+using Core.Features.Users.Queries;
+
+namespace HotelSystem.Controllers.V1;
 
 [ApiVersion(1.0)]
 [Route("api/v{version:apiversion}/[controller]")]
@@ -24,6 +27,26 @@ public class UserController(ISender sender) : ControllerBase
 
         return Ok(response);
     }
+
+    [HttpGet("Evaluations/{id}")]
+    [Authorize(policy: "AccessUserEvaluation")]
+    public async Task<IActionResult> GetEvaluations(string id)
+    {
+        var result = await sender.Send(new GetUserEvaluationsToHotels(id));
+
+        return Ok(result);
+    }
+
+    [HttpPatch]
+    [Authorize]
+    public async Task<IActionResult> Update([FromBody] PatchUser command)
+    {
+
+        var response = await sender.Send(command);
+
+        return Ok(response);
+    }
+
 
     [HttpPost]
     [Route("Register")]
@@ -87,6 +110,37 @@ public class UserController(ISender sender) : ControllerBase
     {
 
         var response = await sender.Send(new RefreshToken(id));
+
+        return Ok(response);
+    }
+
+    [HttpPost]
+    [Route("SendCodeToReseatPassword")]
+    public async Task<IActionResult> SendCodeToReseatPassword(
+                      [FromBody] SendCodeToReseatPassword command)
+    {
+        var response = await sender.Send(command);
+
+        return Ok(response);
+    }
+
+    [HttpPost]
+    [Route("ReseatPassword")]
+    public async Task<IActionResult> ReseatPassword(
+                      [FromBody] ReseatPassword command)
+    {
+        var response = await sender.Send(command);
+
+        return Ok(response);
+    }
+
+    [HttpPost]
+    [Route("ChangePassword")]
+    [Authorize]
+    public async Task<IActionResult> ChangePassword(
+                             [FromBody] ChangePassword command)
+    {
+        var response = await sender.Send(command);
 
         return Ok(response);
     }

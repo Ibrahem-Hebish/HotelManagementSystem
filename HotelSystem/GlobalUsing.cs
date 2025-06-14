@@ -1,9 +1,7 @@
 ﻿global using Asp.Versioning;
 global using Core;
-global using Core.Facilities.Commands;
-global using Core.Facilities.Queries;
-global using Core.Users.Commands;
-global using Core.Users.Queries;
+global using Core.Features.Facilities.Commands;
+global using Core.Features.Facilities.Queries;
 global using Data;
 global using Data.Entities;
 global using HotelSystem;

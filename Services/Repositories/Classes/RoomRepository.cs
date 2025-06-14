@@ -1,31 +1,55 @@
-﻿namespace Services.Repositories.Classes;
+﻿
+using Services.SpecificationPattern;
+using Services.SpecificationPattern.RoomSpecifications;
+
+namespace Services.Repositories.Classes;
 
 public class RoomRepository(AppDbContext context)
-    : Repository<Room>(context), IRoomRepository
+    : IRoomRepository
 {
+    private readonly DbSet<Room> dbSet = context.Rooms;
 
-    public override async Task<Room> GetByIdAsync(int id, Tracking tracking,
-               CancellationToken cancellationToken)
+    public async Task<Room> GetByIdAsync(int id, CancellationToken cancellationToken)
     {
-        var room = await dbSet
-            .Include(x => x.Hotel)
-            .Include(x => x.Photos)
-            .Include(x => x.Facilitiy)
-            .AsSplitQuery()
-            .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+        var room = await dbSet.FindAsync(id, cancellationToken);
+
+        if (room is not null)
+            await dbSet.Entry(room)
+                .Collection(x => x.Photos)
+                .LoadAsync();
 
         return room!;
     }
-
-    public override async Task<List<Room>> GetAsync(Tracking tracking)
+    public async Task<List<Room>> GetAsync(Tracking tracking, CancellationToken cancellationToken)
     {
-        var rooms = await dbSet
-            .Include(x => x.Hotel)
-            .Include(x => x.Photos)
-            .Include(x => x.Facilitiy)
-            .AsSplitQuery()
-            .ToListAsync();
+        var rooms = dbSet
+           .Include(x => x.Hotel)
+           .Include(x => x.Photos)
+           .Include(x => x.Facilitiy)
+           .AsQueryable();
 
-        return rooms;
+        if (tracking == Tracking.AsTracking)
+            rooms = rooms.AsTracking();
+
+        return await rooms.ToListAsync(cancellationToken);
+    }
+    public async Task<List<Room>> Search(ISpecification<Room> specification, RoomIncludeOptions options, CancellationToken cancellationToken)
+    {
+        var query = dbSet.Where(specification.Filter);
+
+        if (options.IncludePhotos)
+            query = query.Include(x => x.Photos);
+
+        if (options.IncludeHotel)
+            query = query.Include(x => x.Hotel);
+
+        if (options.IncludeFacilities)
+            query = query.Include(x => x.Facilitiy);
+
+        if (options.IncludeReservations)
+            query = query.Include(x => x.Reservations);
+
+        return await query.ToListAsync(cancellationToken);
+
     }
 }
