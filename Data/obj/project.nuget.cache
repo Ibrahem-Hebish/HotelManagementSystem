@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6EM9VVrHlh87eDR4IE9Ya2Y/Cv3MmMWHq9wLlTimGQ04oUxV2djqvX6mPYgQBg18n6g7deWg7OobFY/OBYp8+g==",
+  "dgSpecHash": "RsHsRLr1Jbg/MANtW9t7IbGfSAGaGXWWas5LYaQftGdcxwVfIaPve9n5161Mw8DJZF03+x0KbpGDQA+X/8C8zA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\Data\\Data.csproj",
+  "projectFilePath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagementSystem\\Data\\Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Super magic\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Super magic\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

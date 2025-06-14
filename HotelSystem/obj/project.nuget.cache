@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7MIShpLL0oJfvCVi1+BJ7Yb/6KP0vB9hpHxnEJTNaCWC1+MoV1UndgfDP/V/ep4N3Laa8S+LNFf9de+BIFxQRA==",
+  "dgSpecHash": "VdNXE8R7eCvXs9DLy3ZANwqVX3V5M1PAwowHV5Sj1XlBP/QvCBIdU3KPgPWvYxe55yrAk1yU5Q8ab6asIJHwoA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagmentSystem\\HotelManagementSystem\\HotelSystem\\HotelSystem.csproj",
+  "projectFilePath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagementSystem\\HotelSystem\\HotelSystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Super magic\\.nuget\\packages\\ardalis.specification\\9.2.0\\ardalis.specification.9.2.0.nupkg.sha512",
     "C:\\Users\\Super magic\\.nuget\\packages\\ardalis.specification.entityframeworkcore\\9.2.0\\ardalis.specification.entityframeworkcore.9.2.0.nupkg.sha512",
