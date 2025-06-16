@@ -31,7 +31,6 @@ public class AuthenticationService(
             RefreshTokenExpiredDate = refreshTokenExpiredDate,
             AddedDate = DateTime.UtcNow,
             Userid = user.Id,
-            IsUsed = true,
             IsExpired = false
         };
 

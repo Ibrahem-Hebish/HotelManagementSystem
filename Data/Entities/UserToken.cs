@@ -8,7 +8,6 @@ public class UserToken : IEntity
     public string RefreshToken { get; set; } = "";
     public DateTime AddedDate { get; set; }
     public DateTime RefreshTokenExpiredDate { get; set; }
-    public bool IsUsed { get; set; }
     public bool IsExpired { get; set; }
     public string Userid { get; set; } = "";
     public virtual User User { get; set; }

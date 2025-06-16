@@ -13,23 +13,19 @@ public class SignOutHandler(
     {
         Log.Information("Signing out user with id: {@UserId}", request.UserId);
 
-        var userTokens = await queryRepo
-            .GetAsync(Tracking.AsTracking, cancellationToken);
+        var userToken = await queryRepo
+            .GetUserToken(request.UserId, request.TokenId, Tracking.AsTracking, cancellationToken);
 
-        var userToken = userTokens.OrderBy(x => x?.Id)
-            .LastOrDefault(x => x?.Userid == request.UserId);
+        if (userToken is null)
+            return NotFouned<string>("There is no token with this id");
 
-        if (userToken is not null)
-        {
-            userToken.IsExpired = true;
-            userToken.IsUsed = false;
-            userToken.RefreshTokenExpiredDate = DateTime.UtcNow;
-            userToken.AccessTokenExpiredDate = DateTime.UtcNow;
+        userToken.IsExpired = true;
+        userToken.RefreshTokenExpiredDate = DateTime.UtcNow;
+        userToken.AccessTokenExpiredDate = DateTime.UtcNow;
 
-            await commandRepo.UpdateAsync(userToken, userToken.Id);
+        await commandRepo.UpdateAsync(userToken, userToken.Id);
 
-            await unitOfWork.SaveChangesAsync();
-        }
+        await unitOfWork.SaveChangesAsync();
 
         Log.Information("User with id: {@UserId} signed out successfully", request.UserId);
 

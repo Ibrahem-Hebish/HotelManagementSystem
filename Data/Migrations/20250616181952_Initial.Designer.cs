@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250614122409_Initial")]
+    [Migration("20250616181952_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -469,9 +469,6 @@ namespace Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsExpired")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsUsed")
                         .HasColumnType("bit");
 
                     b.Property<string>("RefreshToken")

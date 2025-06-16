@@ -1,5 +1,4 @@
-﻿
-namespace Services.Repositories.Classes;
+﻿namespace Services.Repositories.Classes;
 
 public class UserTokenRepository(AppDbContext context) : IUserTokenRepository
 {
@@ -16,15 +15,36 @@ public class UserTokenRepository(AppDbContext context) : IUserTokenRepository
             .ToListAsync(cancellationToken);
     }
 
-    public async Task<UserToken?> GetByIdAsync(int id, Tracking tracking, CancellationToken cancellationToken)
+    public async Task<UserToken> GetByIdAsync(int id, CancellationToken cancellationToken)
     {
-        var userToken = dbSet.AsQueryable();
+        var userToken = await dbSet.FindAsync(id, cancellationToken);
+
+        return userToken!;
+    }
+
+    public async Task<List<UserToken>> GetUserTokens(string userId, Tracking tracking, CancellationToken cancellationToken)
+    {
+        var userTokens = dbSet
+                             .Where(x => x.Userid == userId);
 
         if (tracking == Tracking.AsTracking)
-            userToken = userToken.AsTracking();
+            userTokens = userTokens.AsTracking();
 
-        return await userToken
-            .SingleOrDefaultAsync(x => x.Id == id, cancellationToken);
+        return await userTokens
+            .ToListAsync(cancellationToken);
+    }
+
+    public async Task<UserToken> GetUserToken(string userId, int tokenId, Tracking tracking, CancellationToken cancellationToken)
+    {
+        var tokens = dbSet
+            .Where(x => x.Userid == userId && x.Id == tokenId);
+
+        if (tracking == Tracking.AsTracking)
+            tokens = tokens.AsTracking();
+
+        var token = await tokens.FirstOrDefaultAsync(cancellationToken);
+
+        return token!;
     }
 
 }

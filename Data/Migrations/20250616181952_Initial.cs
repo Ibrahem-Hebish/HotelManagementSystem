@@ -266,7 +266,6 @@ namespace Data.Migrations
                     RefreshToken = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AddedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     RefreshTokenExpiredDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsUsed = table.Column<bool>(type: "bit", nullable: false),
                     IsExpired = table.Column<bool>(type: "bit", nullable: false),
                     Userid = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },

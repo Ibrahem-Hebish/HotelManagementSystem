@@ -19,7 +19,7 @@ public class RefreshTokenHandler(IAuthenticationService authenticationService,
         try
         {
             var userToken = await queryRepo
-                                  .GetByIdAsync(request.id, Tracking.AsTracking, cancellationToken);
+                                  .GetByIdAsync(request.id, cancellationToken);
             if (userToken is null)
                 return NotFouned<UserToken>("There is no token with this id");
 
@@ -45,7 +45,6 @@ public class RefreshTokenHandler(IAuthenticationService authenticationService,
                                                   userToken.RefreshTokenExpiredDate,
                                                     userToken.RefreshToken);
 
-            userToken.IsUsed = false;
             userToken.IsExpired = true;
             userToken.RefreshTokenExpiredDate = DateTime.UtcNow;
 

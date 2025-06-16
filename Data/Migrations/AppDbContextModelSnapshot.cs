@@ -468,9 +468,6 @@ namespace Data.Migrations
                     b.Property<bool>("IsExpired")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("IsUsed")
-                        .HasColumnType("bit");
-
                     b.Property<string>("RefreshToken")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

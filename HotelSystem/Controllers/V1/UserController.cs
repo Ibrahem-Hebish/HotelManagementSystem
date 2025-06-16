@@ -95,10 +95,10 @@ public class UserController(ISender sender) : ControllerBase
     [Route("SignOut")]
     [Authorize]
     public async Task<IActionResult> SignOut(
-               [Required] string id)
+               [Required] string id, [GreaterThanZero] int tokenId)
     {
 
-        var response = await sender.Send(new SignOut(id));
+        var response = await sender.Send(new SignOut(id, tokenId));
 
         return Ok(response);
     }
