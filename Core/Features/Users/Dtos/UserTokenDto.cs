@@ -8,6 +8,5 @@ public class UserTokenDto
     public string RefreshToken { get; set; } = "";
     public DateTime AddedDate { get; set; }
     public DateTime RefreshTokenExpiredDate { get; set; }
-    public bool IsUsed { get; set; }
     public bool IsExpired { get; set; }
 }

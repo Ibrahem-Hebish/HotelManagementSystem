@@ -1,0 +1,54 @@
+@baseUrl = https://localhost:7198/api/v1
+@roomId = 1
+
+### Get all rooms
+GET {{baseUrl}}/Room
+
+### Get room by ID
+GET {{baseUrl}}/Room/{{roomId}}
+
+### Get Offers
+GET {{baseUrl}}/Room/Offers
+
+### Get Offers by Hotel ID
+GET {{baseUrl}}/Room/HotelOffers/1
+
+### Get Rooms by Hotel ID
+GET {{baseUrl}}/Room/ByHotelId?hotelId=1
+
+### Get Available Rooms
+GET {{baseUrl}}/Room/Available
+
+### Get Available Rooms by Hotel ID
+GET {{baseUrl}}/Room/AvailableWithinHotel/1
+
+### Get Rooms within an area range
+GET {{baseUrl}}/Room/ByAreaRange?minArea=10&maxArea=50
+
+### Get Rooms by max area
+GET {{baseUrl}}/Room/ByMaxArea?maxArea=50
+
+### Get Rooms by min area
+GET {{baseUrl}}/Room/ByMinArea?minArea=10
+
+### Get Rooms by Price Range
+GET {{baseUrl}}/Room/ByPriceRange?minPrice=100&maxPrice=500
+
+### Get Rooms by max price
+GET {{baseUrl}}/Room/ByMaxPrice?maxPrice=500
+
+### Get Rooms by min price
+GET {{baseUrl}}/Room/ByMinPrice?minPrice=100
+
+### Get Rooms By Status
+GET {{baseUrl}}/Room/ByStatus?status=0
+
+### Get Rooms By Type
+GET {{baseUrl}}/Room/ByType?type=1
+
+
+
+
+
+
+

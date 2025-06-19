@@ -5,9 +5,8 @@ using Data.Enums;
 namespace HotelSystem.Controllers.V1;
 
 [ApiVersion(1.0)]
-[Route("api/v{version:apiversion}/[controller]")]
-[ApiController]
-public class RoomController(ISender sender) : ControllerBase
+
+public class RoomController(ISender sender) : AppController
 {
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(
@@ -15,7 +14,7 @@ public class RoomController(ISender sender) : ControllerBase
     {
         var response = await sender.Send(new GetRoomById(id));
 
-        return Ok(response);
+        return NewRespnse(response);
     }
 
     [HttpGet]
@@ -24,7 +23,7 @@ public class RoomController(ISender sender) : ControllerBase
 
         var response = await sender.Send(new GetAllRooms());
 
-        return Ok(response);
+        return NewRespnse(response);
     }
 
     [HttpGet("Offers")]
@@ -32,7 +31,7 @@ public class RoomController(ISender sender) : ControllerBase
     {
         var response = await sender.Send(new GetRoomsWithOffer());
 
-        return Ok(response);
+        return NewRespnse(response);
     }
 
     [HttpGet("HotelOffers/{id}")]
@@ -42,7 +41,7 @@ public class RoomController(ISender sender) : ControllerBase
     {
         var response = await sender.Send(new GetHotelOffers(id));
 
-        return Ok(response);
+        return NewRespnse(response);
     }
 
     [HttpGet("ByHotelId")]
@@ -51,7 +50,7 @@ public class RoomController(ISender sender) : ControllerBase
     {
         var result = await sender.Send(new GetRoomsByHotelId(hotelId));
 
-        return Ok(result);
+        return NewRespnse(result);
     }
 
     [HttpGet("Available")]
@@ -59,27 +58,27 @@ public class RoomController(ISender sender) : ControllerBase
     {
         var result = await sender.Send(new GetAvilableRooms());
 
-        return Ok(result);
+        return NewRespnse(result);
     }
 
     [HttpGet("AvailableWithinHotel/{id}")]
 
-    public async Task<IActionResult> GetAvailableRoomsWithinHotel(
+    public async Task<IActionResult> GetAvailableRoomsWithinAHotel(
                       [GreaterThanZero] int id)
     {
-        var result = await sender.Send(GetAvailableRoomsWithinHotel(id));
+        var result = await sender.Send(new GetAvilableRoomsWithinHotel(id));
 
-        return Ok(result);
+        return NewRespnse(result);
     }
 
     [HttpGet("ByAreaRange")]
     public async Task<IActionResult> GetByArea(
-                      [DecimalGreaterThanZero] decimal minPrice,
-                      [DecimalGreaterThanZero] decimal maxPrice)
+                      [DecimalGreaterThanZero] decimal minArea,
+                      [DecimalGreaterThanZero] decimal maxArea)
     {
-        var result = await sender.Send(new GetRoomsByArea(minPrice, maxPrice));
+        var result = await sender.Send(new GetRoomsByArea(minArea, maxArea));
 
-        return Ok(result);
+        return NewRespnse(result);
     }
 
     [HttpGet("ByMaxArea")]
@@ -88,7 +87,7 @@ public class RoomController(ISender sender) : ControllerBase
     {
         var result = await sender.Send(new GetRoomsWithMaxArea(maxArea));
 
-        return Ok(result);
+        return NewRespnse(result);
     }
 
     [HttpGet("ByMinArea")]
@@ -97,7 +96,7 @@ public class RoomController(ISender sender) : ControllerBase
     {
         var result = await sender.Send(new GetRoomsWithMinArea(minArea));
 
-        return Ok(result);
+        return NewRespnse(result);
     }
 
     [HttpGet("ByPriceRange")]
@@ -107,7 +106,7 @@ public class RoomController(ISender sender) : ControllerBase
     {
         var result = await sender.Send(new GetRoomsByPrice(minPrice, maxPrice));
 
-        return Ok(result);
+        return NewRespnse(result);
     }
 
     [HttpGet("ByMaxPrice")]
@@ -116,7 +115,7 @@ public class RoomController(ISender sender) : ControllerBase
     {
         var result = await sender.Send(new GetRoomsWithMaxPrice(maxPrice));
 
-        return Ok(result);
+        return NewRespnse(result);
     }
 
     [HttpGet("ByMinPrice")]
@@ -125,7 +124,7 @@ public class RoomController(ISender sender) : ControllerBase
     {
         var result = await sender.Send(new GetRoomsWithMinPrice(minPrice));
 
-        return Ok(result);
+        return NewRespnse(result);
     }
 
     [HttpGet("ByStatus")]
@@ -134,7 +133,7 @@ public class RoomController(ISender sender) : ControllerBase
     {
         var result = await sender.Send(new GetRoomsByStatus(status));
 
-        return Ok(result);
+        return NewRespnse(result);
     }
 
     [HttpGet("ByType")]
@@ -143,7 +142,7 @@ public class RoomController(ISender sender) : ControllerBase
     {
         var result = await sender.Send(new GetRoomsByType(type));
 
-        return Ok(result);
+        return NewRespnse(result);
     }
 
 

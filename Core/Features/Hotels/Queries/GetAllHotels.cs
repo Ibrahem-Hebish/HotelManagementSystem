@@ -9,7 +9,3 @@ public sealed record GetAllHotels : IRequest<Response<List<GetHotel>>>, ICachedQ
     public TimeSpan? Expiration => TimeSpan.FromMinutes(2);
 }
 
-public sealed record HotelSearch(string? HotelName, string? City, string? Country, string? Street) : IValidatorRequest, IRequest<Response<List<GetHotel>>>
-{
-
-}

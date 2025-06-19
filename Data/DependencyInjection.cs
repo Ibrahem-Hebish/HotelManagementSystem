@@ -19,10 +19,9 @@ public static class DependencyInjection
             o.Password.RequiredLength = 8;
             o.User.RequireUniqueEmail = true;
         })
-
             .AddRoles<Role>()
             .AddEntityFrameworkStores<AppDbContext>()
-            .AddTokenProvider<DataProtectorTokenProvider<User>>(TokenOptions.DefaultProvider);
+            .AddDefaultTokenProviders();
 
         return Service;
     }

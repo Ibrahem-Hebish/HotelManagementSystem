@@ -6,7 +6,7 @@ public class RoomIncludeOptions
     public bool IncludePhotos { get; private set; } = false;
     public bool IncludeFacilities { get; private set; } = false;
     public bool IncludeReservations { get; private set; } = false;
-
+    public bool SplitQuery { get; private set; } = false;
     public RoomIncludeOptions WithHotel()
     {
         IncludeHotel = true;
@@ -37,6 +37,12 @@ public class RoomIncludeOptions
         IncludePhotos = false;
         IncludeFacilities = false;
         IncludeReservations = false;
+        return this;
+    }
+
+    public RoomIncludeOptions AsSplitQuery()
+    {
+        SplitQuery = true;
         return this;
     }
 }

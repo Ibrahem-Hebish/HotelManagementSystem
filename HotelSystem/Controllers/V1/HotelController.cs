@@ -3,9 +3,7 @@
 namespace HotelSystem.Controllers.V1;
 
 [ApiVersion(1.0)]
-[Route("api/v{version:apiversion}/[controller]")]
-[ApiController]
-public class HotelController(ISender sender) : ControllerBase
+public class HotelController(ISender sender) : AppController
 {
 
     [HttpGet("{id}")]
@@ -14,7 +12,7 @@ public class HotelController(ISender sender) : ControllerBase
     {
         var response = await sender.Send(new GetHotelById(id));
 
-        return Ok(response);
+        return NewRespnse(response);
     }
 
     [HttpGet]
@@ -22,7 +20,7 @@ public class HotelController(ISender sender) : ControllerBase
     {
         var response = await sender.Send(new GetAllHotels());
 
-        return Ok(response);
+        return NewRespnse(response);
     }
 
     [HttpGet("GetByCity/{city}")]
@@ -31,7 +29,7 @@ public class HotelController(ISender sender) : ControllerBase
     {
         var response = await sender.Send(new GetHotelsByCity(city));
 
-        return Ok(response);
+        return NewRespnse(response);
     }
 
     [HttpGet("GetByCountry/{country}")]
@@ -40,7 +38,7 @@ public class HotelController(ISender sender) : ControllerBase
     {
         var response = await sender.Send(new GetHotelsByCountry(country));
 
-        return Ok(response);
+        return NewRespnse(response);
     }
 
     [HttpGet("Paginate")]
@@ -51,7 +49,7 @@ public class HotelController(ISender sender) : ControllerBase
     {
         var response = await sender.Send(new PaginateHotels(pageSize, lastId));
 
-        return Ok(response);
+        return NewRespnse(response);
     }
 
     [HttpPost("Search")]
@@ -61,6 +59,6 @@ public class HotelController(ISender sender) : ControllerBase
     {
         var response = await sender.Send(request);
 
-        return Ok(response);
+        return NewRespnse(response);
     }
 }

@@ -4,19 +4,16 @@ using Core.Features.Users.Queries;
 namespace HotelSystem.Controllers.V1;
 
 [ApiVersion(1.0)]
-[Route("api/v{version:apiversion}/[controller]")]
-[ApiController]
-public class UserController(ISender sender) : ControllerBase
+public class UserController(ISender sender) : AppController
 {
 
     [HttpGet("{id}")]
     [Authorize(Roles = "Admin")]
-    public async Task<IActionResult> GetById(
-               [Required] string id)
+    public async Task<IActionResult> GetById([Required] string id)
     {
         var response = await sender.Send(new GetUserById(id));
 
-        return Ok(response);
+        return NewRespnse(response);
     }
 
     [HttpGet]
@@ -25,7 +22,7 @@ public class UserController(ISender sender) : ControllerBase
     {
         var response = await sender.Send(new GetUsers());
 
-        return Ok(response);
+        return NewRespnse(response);
     }
 
     [HttpGet("Evaluations/{id}")]
@@ -34,7 +31,30 @@ public class UserController(ISender sender) : ControllerBase
     {
         var result = await sender.Send(new GetUserEvaluationsToHotels(id));
 
-        return Ok(result);
+        return NewRespnse(result);
+    }
+    [HttpPost("ConfirmEmail")]
+    public async Task<IActionResult> ConfirmEmail(ConfirmEmail command)
+    {
+        var response = await sender.Send(command);
+
+        return NewRespnse(response);
+    }
+
+    [HttpPost("CheckEmailExists")]
+    public async Task<IActionResult> CheckEmailExists(CheckIfEmailExsist command)
+    {
+        var response = await sender.Send(command);
+
+        return NewRespnse(response);
+    }
+
+    [HttpPost("CheckUserNameExists")]
+    public async Task<IActionResult> CheckUserNameExists(CheckIfUsernameExsist command)
+    {
+        var response = await sender.Send(command);
+
+        return NewRespnse(response);
     }
 
     [HttpPatch]
@@ -44,104 +64,95 @@ public class UserController(ISender sender) : ControllerBase
 
         var response = await sender.Send(command);
 
-        return Ok(response);
+        return NewRespnse(response);
     }
 
 
     [HttpPost]
     [Route("Register")]
-    public async Task<IActionResult> Register(
-               [FromBody] CreateUser command)
+    public async Task<IActionResult> Register(CreateUser command)
     {
         var response = await sender.Send(command);
 
-        return Ok(response);
+        return NewRespnse(response);
     }
 
     [HttpPost]
     [Route("AddAdmin")]
     [Authorize(Roles = "Admin")]
-    public async Task<IActionResult> CreateAdmin(
-               [FromBody] CreateAdmin command)
+    public async Task<IActionResult> CreateAdmin(CreateAdmin command)
     {
         var response = await sender.Send(command);
 
-        return Ok(response);
+        return NewRespnse(response);
     }
 
     [HttpPost]
     [Route("AddVendor")]
     [Authorize(Roles = "Admin")]
-    public async Task<IActionResult> CreateVendor(
-               [FromBody] CreateVendor command)
+    public async Task<IActionResult> CreateVendor(CreateVendor command)
     {
         var response = await sender.Send(command);
 
-        return Ok(response);
+        return NewRespnse(response);
     }
 
     [HttpPost]
     [Route("SignIn")]
     [EnableRateLimiting(policyName: "SignInLimit")]
-    public async Task<IActionResult> SignIn(
-               [FromBody] SignIn command)
+    public async Task<IActionResult> SignIn(SignIn command)
     {
         var response = await sender.Send(command);
 
-        return Ok(response);
+        return NewRespnse(response);
     }
 
     [HttpPost]
     [Route("SignOut")]
     [Authorize]
-    public async Task<IActionResult> SignOut(
-               [Required] string id, [GreaterThanZero] int tokenId)
+    public async Task<IActionResult> SignOut([Required] string id, [GreaterThanZero] int tNewRespnseenId)
     {
 
-        var response = await sender.Send(new SignOut(id, tokenId));
+        var response = await sender.Send(new SignOut(id, tNewRespnseenId));
 
-        return Ok(response);
+        return NewRespnse(response);
     }
 
     [HttpPost]
     [Route("RefrehToken")]
-    public async Task<IActionResult> RefrehToken(
-               [GreaterThanZero] int id)
+    public async Task<IActionResult> RefrehToken([GreaterThanZero] int id)
     {
 
         var response = await sender.Send(new RefreshToken(id));
 
-        return Ok(response);
+        return NewRespnse(response);
     }
 
     [HttpPost]
     [Route("SendCodeToReseatPassword")]
-    public async Task<IActionResult> SendCodeToReseatPassword(
-                      [FromBody] SendCodeToReseatPassword command)
+    public async Task<IActionResult> SendCodeToReseatPassword(SendCodeToReseatPassword command)
     {
         var response = await sender.Send(command);
 
-        return Ok(response);
+        return NewRespnse(response);
     }
 
     [HttpPost]
     [Route("ReseatPassword")]
-    public async Task<IActionResult> ReseatPassword(
-                      [FromBody] ReseatPassword command)
+    public async Task<IActionResult> ReseatPassword(ReseatPassword command)
     {
         var response = await sender.Send(command);
 
-        return Ok(response);
+        return NewRespnse(response);
     }
 
     [HttpPost]
     [Route("ChangePassword")]
     [Authorize]
-    public async Task<IActionResult> ChangePassword(
-                             [FromBody] ChangePassword command)
+    public async Task<IActionResult> ChangePassword(ChangePassword command)
     {
         var response = await sender.Send(command);
 
-        return Ok(response);
+        return NewRespnse(response);
     }
 }

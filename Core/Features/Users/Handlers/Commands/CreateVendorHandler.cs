@@ -1,22 +1,26 @@
 ﻿using Core.Features.Users.Commands;
+using Core.Features.Users.Dtos;
 
 namespace Core.Features.Users.Handlers.Commands;
 
-public class CreateVendorHandler(UserManager<User> userManager,
-    IAuthenticationService authenticationService,
+public class CreateVendorHandler
+    (UserManager<User> userManager,
     IHttpContextAccessor httpContextAccessor,
-    IUnitOfWork unitOfWork)
+    IUnitOfWork unitOfWork,
+    IPublisher publisher,
+    IMapper mapper)
+
     : ResponseHandler,
-    IRequestHandler<CreateVendor, Response<UserToken>>
+    IRequestHandler<CreateVendor, Response<GetUser>>
 {
-    public async Task<Response<UserToken>> Handle(CreateVendor request, CancellationToken cancellationToken)
+    public async Task<Response<GetUser>> Handle(CreateVendor request, CancellationToken cancellationToken)
     {
         using var transaction = unitOfWork.BeginTransaction();
 
         var isExsists = await userManager.FindByEmailAsync(request.Email!);
 
         if (isExsists is not null)
-            return BadRequest<UserToken>("Email already exists");
+            return BadRequest<GetUser>("Email already exists");
 
         var user = request.Adapt<User>();
 
@@ -29,7 +33,7 @@ public class CreateVendorHandler(UserManager<User> userManager,
             {
                 Log.Error("Error while adding user {@error}", isCreated.Errors.FirstOrDefault()?.Description);
 
-                return InternalServerError<UserToken>(isCreated.Errors.FirstOrDefault()?.Description!);
+                return InternalServerError<GetUser>(isCreated.Errors.FirstOrDefault()?.Description!);
 
             }
 
@@ -41,16 +45,16 @@ public class CreateVendorHandler(UserManager<User> userManager,
             {
                 Log.Error("Error while adding user to role: {@Role}", userRole.Errors.FirstOrDefault()?.Description);
 
-                return InternalServerError<UserToken>(userRole.Errors.FirstOrDefault()?.Description!);
+                return InternalServerError<GetUser>(userRole.Errors.FirstOrDefault()?.Description!);
             }
-
-            var userToken = await authenticationService.CreateToken(user, DateTime.UtcNow.AddDays(7));
-
-            await unitOfWork.SaveChangesAsync();
 
             await unitOfWork.CommitTransaction();
 
-            return Success(userToken);
+            var userDto = mapper.Map<GetUser>(user);
+
+            await publisher.Publish(new UserCreatedNotification(user), cancellationToken);
+
+            return Success(userDto, "Please, Check your email to confirm");
         }
 
         catch (Exception ex)
@@ -62,7 +66,7 @@ public class CreateVendorHandler(UserManager<User> userManager,
 
             await unitOfWork.RollBack();
 
-            return InternalServerError<UserToken>();
+            return InternalServerError<GetUser>();
         }
     }
 }

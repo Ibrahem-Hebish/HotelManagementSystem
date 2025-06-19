@@ -7,6 +7,8 @@ public class ReseatPasswordValidator : AbstractValidator<ReseatPassword>
     public ReseatPasswordValidator()
     {
         RuleFor(x => x.Email)
+            .EmailAddress()
+            .WithMessage("User Email is not valid.")
             .NotEmpty()
             .WithMessage("User Email is required.")
             .NotNull()

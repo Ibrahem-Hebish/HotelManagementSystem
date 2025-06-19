@@ -37,6 +37,9 @@ public class RoomRepository(AppDbContext context)
     {
         var query = dbSet.Where(specification.Filter);
 
+        if (options.SplitQuery)
+            query = query.AsSplitQuery();
+
         if (options.IncludePhotos)
             query = query.Include(x => x.Photos);
 

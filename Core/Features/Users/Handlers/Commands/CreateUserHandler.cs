@@ -1,23 +1,31 @@
 ﻿using Core.Features.Users.Commands;
+using Core.Features.Users.Dtos;
 
 namespace Core.Features.Users.Handlers.Commands;
 
-public class CreateUserHandler(UserManager<User> userManager,
-    IAuthenticationService authenticationService,
+public class CreateUserHandler(
+    UserManager<User> userManager,
     IHttpContextAccessor httpContextAccessor,
     IUnitOfWork unitOfWork,
-    IPublisher publisher)
+    IPublisher publisher,
+    IMapper mapper)
+
     : ResponseHandler,
-    IRequestHandler<CreateUser, Response<UserToken>>
+    IRequestHandler<CreateUser, Response<GetUser>>
 {
-    public async Task<Response<UserToken>> Handle(CreateUser request, CancellationToken cancellationToken)
+    public async Task<Response<GetUser>> Handle(CreateUser request, CancellationToken cancellationToken)
     {
         using var transaction = unitOfWork.BeginTransaction();
 
-        var isExsists = await userManager.FindByEmailAsync(request.Email);
+        var userByEmail = await userManager.FindByEmailAsync(request.Email);
 
-        if (isExsists is not null)
-            return BadRequest<UserToken>("Email already exists");
+        if (userByEmail is not null)
+            return BadRequest<GetUser>("Email already exists");
+
+        var userByUsername = await userManager.FindByNameAsync(request.UserName);
+
+        if (userByUsername is not null)
+            return BadRequest<GetUser>("Username already exists");
 
         var user = request.Adapt<User>();
 
@@ -31,7 +39,7 @@ public class CreateUserHandler(UserManager<User> userManager,
             {
                 Log.Error("Error while adding user: {@error}", isCreated.Errors.FirstOrDefault()?.Description);
 
-                return InternalServerError<UserToken>(isCreated.Errors.FirstOrDefault()?.Description!);
+                return InternalServerError<GetUser>(isCreated.Errors.FirstOrDefault()?.Description!);
             }
 
             Log.Information("User with email: {@Email} created successfully", request.Email);
@@ -42,19 +50,16 @@ public class CreateUserHandler(UserManager<User> userManager,
             {
                 Log.Error("Error while adding user to role: {@Role}", userRole.Errors.FirstOrDefault()?.Description);
 
-                return InternalServerError<UserToken>(userRole.Errors.FirstOrDefault()?.Description!);
+                return InternalServerError<GetUser>(userRole.Errors.FirstOrDefault()?.Description!);
             }
-
-            var userToken = await authenticationService
-                .CreateToken(user, DateTime.UtcNow.AddDays(7));
-
-            await unitOfWork.SaveChangesAsync();
 
             await unitOfWork.CommitTransaction();
 
+            var userDto = mapper.Map<GetUser>(user);
+
             await publisher.Publish(new UserCreatedNotification(user), cancellationToken);
 
-            return Success(userToken);
+            return Success(userDto, message: "Please, Check your email to confirm");
 
         }
         catch (Exception ex)
@@ -66,7 +71,7 @@ public class CreateUserHandler(UserManager<User> userManager,
 
             await unitOfWork.RollBack();
 
-            return InternalServerError<UserToken>();
+            return InternalServerError<GetUser>();
         }
     }
 }

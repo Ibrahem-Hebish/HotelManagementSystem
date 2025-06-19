@@ -1,6 +1,7 @@
 ﻿using Core.Features.Facilities.Queries;
 using Core.Features.Hotels;
 using Core.Features.Rooms;
+using Core.Features.Users;
 
 namespace Core;
 
@@ -23,6 +24,7 @@ public static class DependencyInjection
 
         RoomMapping.Configure();
         HotelMapping.Configure();
+        UserMapping.Configure();
 
         services.AddHttpContextAccessor();
 
