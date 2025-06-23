@@ -1,6 +1,4 @@
-﻿using Core.Features.Hotels.Queries;
-
-namespace Core.Features.Hotels.Validators;
+﻿namespace Core.Features.Hotels.Validators;
 
 public class PaginateHotelsValidator : AbstractValidator<PaginateHotels>
 {

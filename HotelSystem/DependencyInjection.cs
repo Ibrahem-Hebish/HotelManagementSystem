@@ -16,7 +16,7 @@ public static class DependencyInjection
               new HeaderApiVersionReader("version"),
               new UrlSegmentApiVersionReader());
         })
-            .AddApiExplorer(opt =>
+        .AddApiExplorer(opt =>
         {
             opt.GroupNameFormat = "'v'V";
             opt.SubstituteApiVersionInUrl = true;

@@ -82,6 +82,10 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("OwnerId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -92,32 +96,27 @@ namespace Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Hotel", (string)null);
+                    b.HasIndex("OwnerId");
 
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            City = "Los Angeles",
-                            Country = "USA",
-                            IsDeleted = false,
-                            Name = "Hotel California",
-                            Phone = "+1 800 123 4567",
-                            Street = "123 Sunset Blvd"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            City = "Zubrowka",
-                            Country = "Europe",
-                            IsDeleted = false,
-                            Name = "The Grand Budapest Hotel",
-                            Phone = "+48 123 456 789",
-                            Street = "456 Grand St"
-                        });
+                    b.ToTable("Hotel", (string)null);
                 });
 
-            modelBuilder.Entity("Data.Entities.HotelEvaluations", b =>
+            modelBuilder.Entity("Data.Entities.HotelCustomer", b =>
+                {
+                    b.Property<int>("HotelId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CustomerId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("HotelId", "CustomerId");
+
+                    b.HasIndex("CustomerId");
+
+                    b.ToTable("HotelCustomer", (string)null);
+                });
+
+            modelBuilder.Entity("Data.Entities.HotelReviews", b =>
                 {
                     b.Property<int>("HotelId")
                         .HasColumnType("int");
@@ -139,9 +138,9 @@ namespace Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("HotelEvaluations", null, t =>
+                    b.ToTable("HotelReviews", null, t =>
                         {
-                            t.HasCheckConstraint("CK_HotelEvaluations_Rate", "Rate >= 0 AND Rate <= 5");
+                            t.HasCheckConstraint("CK_HotelReviews_Rate", "Rate >= 0 AND Rate <= 5");
                         });
                 });
 
@@ -196,6 +195,12 @@ namespace Data.Migrations
 
                     b.Property<int>("RoomId")
                         .HasColumnType("int");
+
+                    b.Property<byte[]>("Rowversion")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -270,6 +275,12 @@ namespace Data.Migrations
                     b.Property<decimal>("PricePerNight")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
@@ -289,34 +300,6 @@ namespace Data.Migrations
                         {
                             t.HasCheckConstraint("chk_Area_Must_Be_Greater_than_6", "Area > 6");
                         });
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Area = 30m,
-                            Description = "Deluxe Room with sea view",
-                            DiscountPercentage = 0,
-                            HotelId = 1,
-                            IsDeleted = false,
-                            PricePerNight = 150.00m,
-                            Status = 0,
-                            TotalPrice = 0m,
-                            Type = 3
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Area = 25m,
-                            Description = "Standard Room with city view",
-                            DiscountPercentage = 0,
-                            HotelId = 2,
-                            IsDeleted = false,
-                            PricePerNight = 100.00m,
-                            Status = 0,
-                            TotalPrice = 0m,
-                            Type = 0
-                        });
                 });
 
             modelBuilder.Entity("Data.Entities.RoomFacilities", b =>
@@ -332,23 +315,6 @@ namespace Data.Migrations
                     b.HasIndex("RoomId");
 
                     b.ToTable("RoomFacilities", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            FacilityId = 1,
-                            RoomId = 1
-                        },
-                        new
-                        {
-                            FacilityId = 2,
-                            RoomId = 1
-                        },
-                        new
-                        {
-                            FacilityId = 1,
-                            RoomId = 2
-                        });
                 });
 
             modelBuilder.Entity("Data.Entities.User", b =>
@@ -365,9 +331,6 @@ namespace Data.Migrations
                     b.Property<string>("City")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Code")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -419,7 +382,7 @@ namespace Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
@@ -444,7 +407,13 @@ namespace Data.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.ToTable("User", (string)null);
+                    b.HasIndex("PhoneNumber")
+                        .IsUnique()
+                        .HasFilter("[PhoneNumber] IS NOT NULL");
+
+                    b.ToTable("Users", (string)null);
+
+                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("Data.Entities.UserToken", b =>
@@ -592,23 +561,67 @@ namespace Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Data.Entities.HotelEvaluations", b =>
+            modelBuilder.Entity("Data.Entities.Customer", b =>
                 {
+                    b.HasBaseType("Data.Entities.User");
+
+                    b.ToTable("Customers", (string)null);
+                });
+
+            modelBuilder.Entity("Data.Entities.Vendor", b =>
+                {
+                    b.HasBaseType("Data.Entities.User");
+
+                    b.ToTable("Vendors", (string)null);
+                });
+
+            modelBuilder.Entity("Data.Entities.Hotel", b =>
+                {
+                    b.HasOne("Data.Entities.Vendor", "Owner")
+                        .WithMany("Hotels")
+                        .HasForeignKey("OwnerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Owner");
+                });
+
+            modelBuilder.Entity("Data.Entities.HotelCustomer", b =>
+                {
+                    b.HasOne("Data.Entities.Customer", "Customer")
+                        .WithMany("HotelCustomers")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
                     b.HasOne("Data.Entities.Hotel", "Hotel")
-                        .WithMany("HotelEvaluations")
+                        .WithMany("HotelCustomers")
                         .HasForeignKey("HotelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Data.Entities.User", "User")
-                        .WithMany("HotelEvaluations")
+                    b.Navigation("Customer");
+
+                    b.Navigation("Hotel");
+                });
+
+            modelBuilder.Entity("Data.Entities.HotelReviews", b =>
+                {
+                    b.HasOne("Data.Entities.Hotel", "Hotel")
+                        .WithMany("HotelReviews")
+                        .HasForeignKey("HotelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Data.Entities.Customer", "Customer")
+                        .WithMany("HotelReviews")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.Navigation("Hotel");
+                    b.Navigation("Customer");
 
-                    b.Navigation("User");
+                    b.Navigation("Hotel");
                 });
 
             modelBuilder.Entity("Data.Entities.Photo", b =>
@@ -624,7 +637,7 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Data.Entities.Reservation", b =>
                 {
-                    b.HasOne("Data.Entities.User", "Customer")
+                    b.HasOne("Data.Entities.Customer", "Customer")
                         .WithMany("Reservations")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -633,7 +646,7 @@ namespace Data.Migrations
                     b.HasOne("Data.Entities.Hotel", "Hotel")
                         .WithMany("Reservations")
                         .HasForeignKey("HotelId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Data.Entities.Room", "Room")
@@ -741,6 +754,24 @@ namespace Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Data.Entities.Customer", b =>
+                {
+                    b.HasOne("Data.Entities.User", null)
+                        .WithOne()
+                        .HasForeignKey("Data.Entities.Customer", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Data.Entities.Vendor", b =>
+                {
+                    b.HasOne("Data.Entities.User", null)
+                        .WithOne()
+                        .HasForeignKey("Data.Entities.Vendor", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Data.Entities.Facilitiy", b =>
                 {
                     b.Navigation("RoomFacilities");
@@ -748,7 +779,9 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Data.Entities.Hotel", b =>
                 {
-                    b.Navigation("HotelEvaluations");
+                    b.Navigation("HotelCustomers");
+
+                    b.Navigation("HotelReviews");
 
                     b.Navigation("Reservations");
 
@@ -766,11 +799,21 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Data.Entities.User", b =>
                 {
-                    b.Navigation("HotelEvaluations");
+                    b.Navigation("UserTokens");
+                });
+
+            modelBuilder.Entity("Data.Entities.Customer", b =>
+                {
+                    b.Navigation("HotelCustomers");
+
+                    b.Navigation("HotelReviews");
 
                     b.Navigation("Reservations");
+                });
 
-                    b.Navigation("UserTokens");
+            modelBuilder.Entity("Data.Entities.Vendor", b =>
+                {
+                    b.Navigation("Hotels");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,6 +1,4 @@
-﻿using Core.Features.Hotels.Dto;
-
-namespace Core.Features.Hotels.Queries;
+﻿namespace Core.Features.Hotels.Queries;
 
 public sealed record PaginateHotels(int PageSize, int LastId) : IRequest<CursorPaginatedResponse<List<GetHotel>>>, IValidatorRequest, ICachedQuery
 {

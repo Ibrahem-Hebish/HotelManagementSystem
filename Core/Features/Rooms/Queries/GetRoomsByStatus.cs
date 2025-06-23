@@ -1,7 +1,4 @@
-﻿using Core.Features.Rooms.Dtos;
-using Data.Enums;
-
-namespace Core.Features.Rooms.Queries;
+﻿namespace Core.Features.Rooms.Queries;
 
 public record GetRoomsByStatus(RoomStatus Status) : ICachedQuery, IRequest<Response<List<GetRoom>>>
 {

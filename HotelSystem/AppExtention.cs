@@ -1,4 +1,7 @@
-﻿namespace HotelSystem;
+﻿using Data.DBContext;
+using Hangfire;
+
+namespace HotelSystem;
 
 public static class AppExtention
 {
@@ -8,9 +11,13 @@ public static class AppExtention
         {
             var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
             var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<Role>>();
+            var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
             await Seeder.SeedRoles(roleManager);
             await Seeder.SeedUsers(userManager);
+            await Seeder.SeedHotels(dbContext);
+            await Seeder.SeedRooms(dbContext);
+            await Seeder.SeedRoomFacilities(dbContext);
 
         }
 
@@ -22,19 +29,29 @@ public static class AppExtention
 
         app.UseMiddleware<ExeptionHandlerMiddleware>();
 
-        app.UseHttpsRedirection();
-
         app.UseMiddleware<ResponseTimeMiddleware>();
 
-        app.UseRouting();
+        app.UseHttpsRedirection();
 
         app.UseCors("AllowAll");
+
+        app.UseRouting();
 
         app.UseRateLimiter();
 
         app.UseAuthentication();
 
         app.UseAuthorization();
+
+        app.UseHangfireDashboard();
+
+        app.MapHangfireDashboard("/hangfire")
+        .RequireAuthorization(r => r.RequireRole("Admin"));
+
+        RecurringJob.AddOrUpdate<BackGroundJobs>(
+           "RealeseAvillableRooms",
+        job => job.ReleaseAvillableRooms(CancellationToken.None)
+           , Cron.Daily);
 
         app.MapControllers();
     }

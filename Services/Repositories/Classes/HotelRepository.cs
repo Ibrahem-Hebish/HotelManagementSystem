@@ -109,7 +109,7 @@ public class HotelRepository(AppDbContext context)
             query = query.Include(x => x.Reservations);
 
         if (includeOptions.IncludeEvaluations)
-            query = query.Include(x => x.HotelEvaluations);
+            query = query.Include(x => x.HotelReviews);
 
         if (includeOptions.IncludeRooms)
             query = query.Include(x => x.Rooms);

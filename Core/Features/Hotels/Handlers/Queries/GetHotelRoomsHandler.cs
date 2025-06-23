@@ -1,7 +1,4 @@
-﻿using Core.Features.Hotels.Queries;
-using Core.Features.Rooms.Dtos;
-using Services.SpecificationPattern.RoomSpecifications;
-
+﻿
 namespace Core.Features.Hotels.Handlers.Queries;
 
 public class GetHotelRoomsHandler(

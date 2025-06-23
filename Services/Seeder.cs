@@ -1,6 +1,4 @@
-﻿using Data.Enums;
-
-namespace Services;
+﻿namespace Services;
 
 public static class Seeder
 {
@@ -14,11 +12,12 @@ public static class Seeder
         }
     }
 
+
     public static async Task SeedUsers(UserManager<User> userManager)
     {
         if (!userManager.Users.Any())
         {
-            User user = new()
+            User admin = new()
             {
                 FirstName = "Ibrahem",
                 LastName = "Ahmed",
@@ -31,7 +30,7 @@ public static class Seeder
                 BirthDate = new DateOnly(2001, 1, 22),
             };
 
-            User user2 = new()
+            Customer customer = new()
             {
                 FirstName = "Ibrahem",
                 LastName = "Hebish",
@@ -44,15 +43,126 @@ public static class Seeder
                 BirthDate = new DateOnly(2001, 1, 22),
             };
 
-            var result = await userManager.CreateAsync(user, "Hema123#");
+            Vendor vendor = new()
+            {
+                Id = "f3b1c2d3-e4f5-6789-abcd-ef0123456789",
+                FirstName = "Ali",
+                LastName = "Ahmed",
+                UserName = "Ali_Ahmed",
+                Email = "ibrahemahmed@gmail.com",
+                PhoneNumber = "01224157272",
+                Country = "Egypt",
+                City = "Cairo",
+                Gender = UserGender.Male,
+                BirthDate = new DateOnly(1985, 1, 20),
+            };
 
-            if (result.Succeeded)
-                await userManager.AddToRoleAsync(user, "Admin");
+            var isAdminCreated = await userManager.CreateAsync(admin, "Hema123#");
 
-            var result2 = await userManager.CreateAsync(user2, "Hema123#");
+            if (isAdminCreated.Succeeded)
+                await userManager.AddToRoleAsync(admin, "Admin");
 
-            if (result2.Succeeded)
-                await userManager.AddToRoleAsync(user2, "Customer");
+            var isCustomerCreated = await userManager.CreateAsync(customer, "Hema123#");
+
+            if (isCustomerCreated.Succeeded)
+                await userManager.AddToRoleAsync(customer, "Customer");
+
+            var isVendorCreated = await userManager.CreateAsync(vendor, "Ali123##");
+
+            if (isVendorCreated.Succeeded)
+            {
+                await userManager.AddToRoleAsync(vendor, "Vendor");
+            }
         }
     }
+
+    public static async Task SeedVendors(UserManager<Vendor> userManager)
+    {
+
+    }
+
+    public static async Task SeedHotels(AppDbContext context)
+    {
+        if (!context.Hotels.Any())
+        {
+            List<Hotel> hotels = [
+                new Hotel
+                {
+                    Name = "Hotel California",
+                    Phone = "+1 800 123 4567",
+                    Country = "USA",
+                    City = "Los Angeles",
+                    Street = "123 Sunset Blvd",
+                    IsDeleted = false,
+                    OwnerId = "f3b1c2d3-e4f5-6789-abcd-ef0123456789"
+                },
+                new Hotel
+                {
+                    Name = "The Grand Budapest Hotel",
+                    Phone = "+48 123 456 789",
+                    Country = "Europe",
+                    City = "Zubrowka",
+                    Street = "456 Grand St",
+                    IsDeleted = false,
+                    OwnerId = "f3b1c2d3-e4f5-6789-abcd-ef0123456789"
+                }
+            ];
+
+            await context.Hotels.AddRangeAsync(hotels);
+            await context.SaveChangesAsync();
+        }
+    }
+    public static async Task SeedRooms(AppDbContext context)
+    {
+        List<Room> rooms =
+            [
+                new Room
+                {
+                    Description = "Deluxe Room with sea view",
+                    Status = RoomStatus.Available,
+                    DiscountPercentage = 0,
+                    Type = RoomType.Deluxe,
+                    Area = 30,
+                    PricePerNight = 150.00m,
+                    HotelId = 1,
+                    IsDeleted = false
+                },
+                new Room
+                {
+                    Description = "Standard Room with city view",
+                    Area = 25,
+                    Status = RoomStatus.Available,
+                    DiscountPercentage = 0,
+                    Type = RoomType.Single,
+                    PricePerNight = 100.00m,
+                    HotelId = 2,
+                    IsDeleted = false
+                }
+
+            ];
+        if (!context.Rooms.Any())
+        {
+            await context.Rooms.AddRangeAsync(rooms);
+            await context.SaveChangesAsync();
+        }
+
+
+    }
+    public static async Task SeedRoomFacilities(AppDbContext context)
+    {
+        List<RoomFacilities> roomFacilities =
+            [
+                new RoomFacilities { FacilityId = 1, RoomId = 1 },
+                new RoomFacilities { FacilityId = 2, RoomId = 1 },
+                new RoomFacilities { FacilityId = 1, RoomId = 2 }
+            ];
+
+        if (!context.RoomFacilities.Any())
+        {
+            await context.RoomFacilities.AddRangeAsync(roomFacilities);
+            await context.SaveChangesAsync();
+        }
+
+    }
 }
+

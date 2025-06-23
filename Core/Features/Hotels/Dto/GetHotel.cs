@@ -1,7 +1,4 @@
-﻿using Core.Features.Evaluations.Dtos;
-using Core.Features.Rooms.Dtos;
-
-namespace Core.Features.Hotels.Dto;
+﻿namespace Core.Features.Hotels.Dto;
 
 public class GetHotel
 {
@@ -12,7 +9,7 @@ public class GetHotel
     public string City { get; set; } = "";
     public string Street { get; set; } = "";
     public List<GetRoom> Rooms { get; set; } = [];
-    public List<GetEvaluation> Evaluations { get; set; } = [];
+    public List<GetReview> Reviews { get; set; } = [];
 }
 
 

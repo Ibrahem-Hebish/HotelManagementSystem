@@ -3,13 +3,13 @@ namespace Services.Repositories.Classes;
 
 public class UserRepository(AppDbContext context) : IUserRepository
 {
-    public async Task<List<HotelEvaluations>> GetUserEvaluationsToHotels(string userId, Tracking tracking, CancellationToken cancellationToken)
+    public async Task<List<HotelReviews>> GetUserReviewsToHotels(string userId, Tracking tracking, CancellationToken cancellationToken)
     {
         try
         {
             var user = await GetUserWithEvaluations(userId, cancellationToken);
 
-            var hotelEvaluations = context.HotelEvaluations
+            var hotelEvaluations = context.HotelReviews
             .Where(x => x.UserId == user.Id)
             .Include(x => x.Hotel)
             .AsQueryable();
@@ -101,12 +101,9 @@ public class UserRepository(AppDbContext context) : IUserRepository
         }
     }
 
-
-
-    ////////////////////////////
-    private async Task<User> GetUserWithReservations(string userId, CancellationToken cancellationToken)
+    private async Task<Customer> GetUserWithReservations(string userId, CancellationToken cancellationToken)
     {
-        var user = await context.Users.FindAsync(userId, cancellationToken);
+        var user = await context.Customers.FindAsync(userId, cancellationToken);
 
         if (user is not null)
         {
@@ -119,9 +116,9 @@ public class UserRepository(AppDbContext context) : IUserRepository
 
     }
 
-    private async Task<User> GetUserWithHotels(string userId, CancellationToken cancellationToken)
+    private async Task<Vendor> GetUserWithHotels(string userId, CancellationToken cancellationToken)
     {
-        var user = await context.Users.FindAsync(userId, cancellationToken);
+        var user = await context.Vendors.FindAsync(userId, cancellationToken);
 
         if (user is not null)
         {
@@ -135,12 +132,12 @@ public class UserRepository(AppDbContext context) : IUserRepository
 
     private async Task<User> GetUserWithEvaluations(string userId, CancellationToken cancellationToken)
     {
-        var user = await context.Users.FindAsync(userId, cancellationToken);
+        var user = await context.Customers.FindAsync(userId, cancellationToken);
 
         if (user is not null)
         {
             await context.Entry(user)
-                .Collection(x => x.HotelEvaluations)
+                .Collection(x => x.HotelReviews)
                 .LoadAsync(cancellationToken);
         }
 

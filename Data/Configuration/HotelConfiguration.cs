@@ -4,6 +4,7 @@ public class HotelConfiguration : IEntityTypeConfiguration<Hotel>
 {
     public void Configure(EntityTypeBuilder<Hotel> builder)
     {
+
         builder.Property(x => x.Name)
             .HasColumnType("nvarchar(50)");
 
@@ -16,30 +17,28 @@ public class HotelConfiguration : IEntityTypeConfiguration<Hotel>
         builder.Property(x => x.Street)
             .HasColumnType("nvarchar(100)");
 
-        builder.HasQueryFilter(x => !x.IsDeleted);
+        builder.HasOne(x => x.Owner)
+            .WithMany(x => x.Hotels)
+            .HasForeignKey(x => x.OwnerId)
+            .OnDelete(DeleteBehavior.Cascade);
 
-        builder.HasData(
-                        new Hotel
-                        {
-                            Id = 1,
-                            Name = "Hotel California",
-                            Phone = "+1 800 123 4567",
-                            Country = "USA",
-                            City = "Los Angeles",
-                            Street = "123 Sunset Blvd",
-                            IsDeleted = false
-                        },
-                        new Hotel
-                        {
-                            Id = 2,
-                            Name = "The Grand Budapest Hotel",
-                            Phone = "+48 123 456 789",
-                            Country = "Europe",
-                            City = "Zubrowka",
-                            Street = "456 Grand St",
-                            IsDeleted = false
-                        }
-                                );
+        builder.HasMany(x => x.Customers)
+            .WithMany(x => x.Hotels)
+            .UsingEntity<HotelReviews>(builder =>
+
+                builder.HasOne(x => x.Customer)
+                    .WithMany(x => x.HotelReviews)
+                    .HasForeignKey(x => x.UserId)
+                    .OnDelete(DeleteBehavior.NoAction)
+            , builder =>
+
+                builder.HasOne(x => x.Hotel)
+                    .WithMany(x => x.HotelReviews)
+                    .HasForeignKey(x => x.HotelId)
+                    .OnDelete(DeleteBehavior.Cascade)
+            );
+
+        builder.HasQueryFilter(x => !x.IsDeleted);
 
         builder.ToTable(nameof(Hotel));
     }

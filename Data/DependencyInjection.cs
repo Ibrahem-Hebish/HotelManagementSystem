@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddDataDependancies(this IServiceCollection Service, IConfiguration configuration)
+    public static IServiceCollection AddData(this IServiceCollection Service, IConfiguration configuration)
     {
 
         Service.AddDbContext<AppDbContext>(opt =>

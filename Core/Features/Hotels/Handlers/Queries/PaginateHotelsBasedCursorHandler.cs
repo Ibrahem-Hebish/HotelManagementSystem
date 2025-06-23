@@ -1,7 +1,4 @@
-﻿using Core.Features.Hotels.Dto;
-using Core.Features.Hotels.Queries;
-
-namespace Core.Features.Hotels.Handlers.Queries;
+﻿namespace Core.Features.Hotels.Handlers.Queries;
 
 public class PaginateHotelsHandler(
     IHotelRepository hotelRepository,

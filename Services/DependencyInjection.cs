@@ -4,7 +4,7 @@ namespace servicess;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddServiceDependencies(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddService(this IServiceCollection services, IConfiguration configuration)
     {
 
         var signingKey = configuration["jwtsigningkey"];
@@ -45,6 +45,7 @@ public static class DependencyInjection
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IReservationRepository, ReservationRepository>();
         services.AddScoped<IUserTokenRepository, UserTokenRepository>();
+        services.AddScoped<IVendorRepository, VendorRepository>();
 
         services.Configure<JwtOptions>(configuration.GetSection("jwt"));
 
@@ -74,7 +75,19 @@ public static class DependencyInjection
 
         services.AddScoped<IAuthorizationHandler, GreaterThanHandler>();
 
-        services.AddScoped<IAuthorizationHandler, AccessUserEvaluationHandler>();
+        services.AddScoped<IAuthorizationHandler, AccessUserReviewsHandler>();
+
+        services.AddScoped<IAuthorizationHandler, AccessCustomerDataHandler>();
+
+        services.AddScoped<IAuthorizationHandler, AccessCustomerReservationHandler>();
+
+        services.AddScoped<IAuthorizationHandler, AccessHotelReservationHandler>();
+
+        services.AddScoped<IAuthorizationHandler, AccessReservationByIdHandler>();
+
+        services.AddScoped<IAuthorizationHandler, ModifyReservationHandler>();
+
+
 
         services.AddAuthorization(opt =>
         {
@@ -96,9 +109,34 @@ public static class DependencyInjection
                 builder.AddRequirements(new GreaterthanReqirment(18));
             });
 
-            opt.AddPolicy("AccessUserEvaluation", builder =>
+            opt.AddPolicy("AccessUserReviews", builder =>
             {
-                builder.AddRequirements(new AccessEvaluationPermission());
+                builder.AddRequirements(new AccessReviewsPermission());
+            });
+
+            opt.AddPolicy("AccessCustomerData", builder =>
+            {
+                builder.AddRequirements(new AccessCustomerDataPermission());
+            });
+
+            opt.AddPolicy("AccessCustomerReservations", builder =>
+            {
+                builder.AddRequirements(new AccessCustomerReservationPermission());
+            });
+
+            opt.AddPolicy("AccessHotelReservations", builder =>
+            {
+                builder.AddRequirements(new AccessHotelReservationPermission());
+            });
+
+            opt.AddPolicy("AccessReservationById", builder =>
+            {
+                builder.AddRequirements(new AccessReservationByIdPermission());
+            });
+
+            opt.AddPolicy("ModifyReservation", builder =>
+            {
+                builder.AddRequirements(new ModifyReservationPermission());
             });
         });
 

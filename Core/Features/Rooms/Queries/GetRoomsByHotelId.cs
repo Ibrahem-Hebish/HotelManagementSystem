@@ -1,6 +1,4 @@
-﻿using Core.Features.Rooms.Dtos;
-
-namespace Core.Features.Rooms.Queries;
+﻿namespace Core.Features.Rooms.Queries;
 
 public record GetRoomsByHotelId(int HotelId) : ICachedQuery, IRequest<Response<List<GetRoom>>>
 {

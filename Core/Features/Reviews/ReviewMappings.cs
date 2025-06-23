@@ -1,5 +1,4 @@
-﻿using Core.Features.Reviews.Dtos;
-
+﻿
 namespace Core.Features.Reviews;
 
 public static class ReviewMappings

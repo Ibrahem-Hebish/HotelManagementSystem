@@ -1,6 +1,4 @@
-﻿using Core.Features.Hotels.Dto;
-using Core.Features.Hotels.Queries;
-
+﻿
 namespace Core.Features.Hotels.Handlers.Queries;
 
 internal class GetHotelByIdHandler(

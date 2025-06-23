@@ -1,5 +1,4 @@
-﻿using Core.Features.Hotels.Dto;
-
+﻿
 namespace Core.Features.Reviews.Dtos;
 
 public class GetReview

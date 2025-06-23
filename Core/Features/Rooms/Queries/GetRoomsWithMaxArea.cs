@@ -1,6 +1,4 @@
-﻿using Core.Features.Rooms.Dtos;
-
-namespace Core.Features.Rooms.Queries;
+﻿namespace Core.Features.Rooms.Queries;
 
 public record GetRoomsWithMaxArea(decimal MaxArea) : ICachedQuery, IRequest<Response<List<GetRoom>>>
 {

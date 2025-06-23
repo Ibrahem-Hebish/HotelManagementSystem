@@ -12,9 +12,6 @@ public class SendEmailOnNewUserCreated(IEmailService emailService,
         {
             var token = await userManager.GenerateEmailConfirmationTokenAsync(notification.User);
 
-            var encodedToken = Uri.EscapeDataString(token);
-
-
             var emailContent = new EmailContent()
             {
                 Email = notification.User.Email!,

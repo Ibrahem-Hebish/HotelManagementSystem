@@ -8,7 +8,7 @@ public class HotelReviews
 
     public string UserId { get; set; } = "";
     [ForeignKey(nameof(UserId))]
-    public User User { get; set; } = null!;
+    public Customer Customer { get; set; } = null!;
 
     public int Rate { get; set; }
     public string Comment { get; set; } = "";

@@ -9,20 +9,21 @@
   <ItemGroup>
     <Compile Remove="Features\Facilities\Dtos\**" />
     <Compile Remove="Features\Hotels\Commands\**" />
-    <Compile Remove="Features\Reservations\**" />
     <Compile Remove="HotelEvaluations\**" />
     <EmbeddedResource Remove="Features\Facilities\Dtos\**" />
     <EmbeddedResource Remove="Features\Hotels\Commands\**" />
-    <EmbeddedResource Remove="Features\Reservations\**" />
     <EmbeddedResource Remove="HotelEvaluations\**" />
     <None Remove="Features\Facilities\Dtos\**" />
     <None Remove="Features\Hotels\Commands\**" />
-    <None Remove="Features\Reservations\**" />
     <None Remove="HotelEvaluations\**" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+    <PackageReference Include="Hangfire" Version="1.8.20" />
+    <PackageReference Include="Hangfire.Core" Version="1.8.20" />
+    <PackageReference Include="Hangfire.Dashboard.Basic.Authentication" Version="8.0.0" />
+    <PackageReference Include="Hangfire.SqlServer" Version="1.8.20" />
     <PackageReference Include="Mapster" Version="7.4.0" />
     <PackageReference Include="Mapster.DependencyInjection" Version="1.0.1" />
     <PackageReference Include="MediatR" Version="12.5.0" />
@@ -35,6 +36,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Customer\Handlers\Queries\" />
+    <Folder Include="Features\Auth\Dtos\" />
+    <Folder Include="Features\Auth\Handlers\Queries\" />
+    <Folder Include="Features\Auth\Queries\" />
+    <Folder Include="Features\Vendor\Commands\" />
+    <Folder Include="Features\Vendor\Dtos\" />
+    <Folder Include="Features\Vendor\Handlers\Commands\" />
+    <Folder Include="Features\Vendor\Validator\" />
+    <Folder Include="Features\Admin\Dtos\" />
     <Folder Include="Features\Hotels\Handlers\Commands\" />
     <Folder Include="Features\Rooms\Handlers\Commands\" />
     <Folder Include="Features\Rooms\Commands\" />

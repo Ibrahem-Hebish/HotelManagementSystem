@@ -2,8 +2,11 @@
 global using Core;
 global using Core.Features.Facilities.Commands;
 global using Core.Features.Facilities.Queries;
+global using Core.Features.Hotels.Queries;
+global using Core.Features.Rooms.Queries;
 global using Data;
 global using Data.Entities;
+global using Data.Enums;
 global using HotelSystem;
 global using HotelSystem.CustomAttribute;
 global using HotelSystem.Middlewares;
@@ -18,3 +21,4 @@ global using servicess;
 global using System.ComponentModel.DataAnnotations;
 global using System.Text.Json;
 global using System.Threading.RateLimiting;
+

@@ -1,6 +1,4 @@
-﻿using Core.Features.Hotels.Dto;
-
-namespace Core.Features.Hotels;
+﻿namespace Core.Features.Hotels;
 
 internal static class HotelMapping
 {

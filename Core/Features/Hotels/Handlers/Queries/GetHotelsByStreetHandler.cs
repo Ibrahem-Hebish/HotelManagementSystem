@@ -1,8 +1,4 @@
-﻿using Core.Features.Hotels.Dto;
-using Core.Features.Hotels.Queries;
-using Services.SpecificationPattern.HotelSpecifications;
-
-namespace Core.Features.Hotels.Handlers.Queries;
+﻿namespace Core.Features.Hotels.Handlers.Queries;
 
 public class GetHotelsByStreetHandler(
        IHotelRepository repository,

@@ -1,8 +1,4 @@
-﻿using Core.Features.Rooms.Queries;
-using Data.Enums;
-
-
-namespace HotelSystem.Controllers.V1;
+﻿namespace HotelSystem.Controllers.V1;
 
 [ApiVersion(1.0)]
 
@@ -14,7 +10,7 @@ public class RoomController(ISender sender) : AppController
     {
         var response = await sender.Send(new GetRoomById(id));
 
-        return NewRespnse(response);
+        return NewResponse(response);
     }
 
     [HttpGet]
@@ -23,7 +19,7 @@ public class RoomController(ISender sender) : AppController
 
         var response = await sender.Send(new GetAllRooms());
 
-        return NewRespnse(response);
+        return NewResponse(response);
     }
 
     [HttpGet("Offers")]
@@ -31,7 +27,7 @@ public class RoomController(ISender sender) : AppController
     {
         var response = await sender.Send(new GetRoomsWithOffer());
 
-        return NewRespnse(response);
+        return NewResponse(response);
     }
 
     [HttpGet("HotelOffers/{id}")]
@@ -41,7 +37,7 @@ public class RoomController(ISender sender) : AppController
     {
         var response = await sender.Send(new GetHotelOffers(id));
 
-        return NewRespnse(response);
+        return NewResponse(response);
     }
 
     [HttpGet("ByHotelId")]
@@ -50,7 +46,7 @@ public class RoomController(ISender sender) : AppController
     {
         var result = await sender.Send(new GetRoomsByHotelId(hotelId));
 
-        return NewRespnse(result);
+        return NewResponse(result);
     }
 
     [HttpGet("Available")]
@@ -58,7 +54,7 @@ public class RoomController(ISender sender) : AppController
     {
         var result = await sender.Send(new GetAvilableRooms());
 
-        return NewRespnse(result);
+        return NewResponse(result);
     }
 
     [HttpGet("AvailableWithinHotel/{id}")]
@@ -68,7 +64,7 @@ public class RoomController(ISender sender) : AppController
     {
         var result = await sender.Send(new GetAvilableRoomsWithinHotel(id));
 
-        return NewRespnse(result);
+        return NewResponse(result);
     }
 
     [HttpGet("ByAreaRange")]
@@ -78,7 +74,7 @@ public class RoomController(ISender sender) : AppController
     {
         var result = await sender.Send(new GetRoomsByArea(minArea, maxArea));
 
-        return NewRespnse(result);
+        return NewResponse(result);
     }
 
     [HttpGet("ByMaxArea")]
@@ -87,7 +83,7 @@ public class RoomController(ISender sender) : AppController
     {
         var result = await sender.Send(new GetRoomsWithMaxArea(maxArea));
 
-        return NewRespnse(result);
+        return NewResponse(result);
     }
 
     [HttpGet("ByMinArea")]
@@ -96,7 +92,7 @@ public class RoomController(ISender sender) : AppController
     {
         var result = await sender.Send(new GetRoomsWithMinArea(minArea));
 
-        return NewRespnse(result);
+        return NewResponse(result);
     }
 
     [HttpGet("ByPriceRange")]
@@ -106,7 +102,7 @@ public class RoomController(ISender sender) : AppController
     {
         var result = await sender.Send(new GetRoomsByPrice(minPrice, maxPrice));
 
-        return NewRespnse(result);
+        return NewResponse(result);
     }
 
     [HttpGet("ByMaxPrice")]
@@ -115,7 +111,7 @@ public class RoomController(ISender sender) : AppController
     {
         var result = await sender.Send(new GetRoomsWithMaxPrice(maxPrice));
 
-        return NewRespnse(result);
+        return NewResponse(result);
     }
 
     [HttpGet("ByMinPrice")]
@@ -124,7 +120,7 @@ public class RoomController(ISender sender) : AppController
     {
         var result = await sender.Send(new GetRoomsWithMinPrice(minPrice));
 
-        return NewRespnse(result);
+        return NewResponse(result);
     }
 
     [HttpGet("ByStatus")]
@@ -133,7 +129,7 @@ public class RoomController(ISender sender) : AppController
     {
         var result = await sender.Send(new GetRoomsByStatus(status));
 
-        return NewRespnse(result);
+        return NewResponse(result);
     }
 
     [HttpGet("ByType")]
@@ -142,7 +138,7 @@ public class RoomController(ISender sender) : AppController
     {
         var result = await sender.Send(new GetRoomsByType(type));
 
-        return NewRespnse(result);
+        return NewResponse(result);
     }
 
 

@@ -1,6 +1,4 @@
-﻿using Core.Features.Rooms.Queries;
-
-namespace Core.Features.Rooms.Validators;
+﻿namespace Core.Features.Rooms.Validators;
 
 public class GetRoomsWithMaxAreaValidator : AbstractValidator<GetRoomsWithMaxArea>
 {

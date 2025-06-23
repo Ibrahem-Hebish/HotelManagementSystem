@@ -1,158 +1,91 @@
-﻿using Core.Features.Users.Commands;
-using Core.Features.Users.Queries;
+﻿using Core.Features.Admin.Commands;
+using Core.Features.Admin.Queries;
 
 namespace HotelSystem.Controllers.V1;
 
 [ApiVersion(1.0)]
-public class UserController(ISender sender) : AppController
+[Authorize(Roles = "Admin")]
+public class AdminController(ISender sender) : AppController
 {
 
-    [HttpGet("{id}")]
-    [Authorize(Roles = "Admin")]
+    [HttpGet("GetUserById/{id}")]
     public async Task<IActionResult> GetById([Required] string id)
     {
         var response = await sender.Send(new GetUserById(id));
 
-        return NewRespnse(response);
+        return NewResponse(response);
     }
 
-    [HttpGet]
-    [Authorize(Roles = "Admin")]
+    [HttpGet("GetUsers")]
     public async Task<IActionResult> Get()
     {
         var response = await sender.Send(new GetUsers());
 
-        return NewRespnse(response);
+        return NewResponse(response);
     }
 
-    [HttpGet("Evaluations/{id}")]
-    [Authorize(policy: "AccessUserEvaluation")]
-    public async Task<IActionResult> GetEvaluations(string id)
+    [HttpGet("GetByCity/{city}")]
+    public async Task<IActionResult> GetByCity(string city)
     {
-        var result = await sender.Send(new GetUserEvaluationsToHotels(id));
+        var response = await sender.Send(new GetUsersByCity(city));
 
-        return NewRespnse(result);
+        return NewResponse(response);
     }
-    [HttpPost("ConfirmEmail")]
-    public async Task<IActionResult> ConfirmEmail(ConfirmEmail command)
+
+    [HttpGet("GetByCountry/{country}")]
+    public async Task<IActionResult> GetByCountry(string country)
     {
-        var response = await sender.Send(command);
+        var response = await sender.Send(new GetUsersByCountry(country));
 
-        return NewRespnse(response);
+        return NewResponse(response);
     }
 
-    [HttpPost("CheckEmailExists")]
-    public async Task<IActionResult> CheckEmailExists(CheckIfEmailExsist command)
-    {
-        var response = await sender.Send(command);
-
-        return NewRespnse(response);
-    }
-
-    [HttpPost("CheckUserNameExists")]
-    public async Task<IActionResult> CheckUserNameExists(CheckIfUsernameExsist command)
+    [HttpPost("GetByEmail")]
+    public async Task<IActionResult> GetByEmail(GetUsers command)
     {
         var response = await sender.Send(command);
 
-        return NewRespnse(response);
+        return NewResponse(response);
     }
 
-    [HttpPatch]
-    [Authorize]
-    public async Task<IActionResult> Update([FromBody] PatchUser command)
-    {
-
-        var response = await sender.Send(command);
-
-        return NewRespnse(response);
-    }
-
-
-    [HttpPost]
-    [Route("Register")]
-    public async Task<IActionResult> Register(CreateUser command)
+    [HttpPost("GetByUsername")]
+    public async Task<IActionResult> GetByUserName(GetUserByUsername command)
     {
         var response = await sender.Send(command);
 
-        return NewRespnse(response);
+        return NewResponse(response);
     }
 
-    [HttpPost]
-    [Route("AddAdmin")]
-    [Authorize(Roles = "Admin")]
+    [HttpPost("GetByPhoneNumber")]
+    public async Task<IActionResult> GetByPhoneNumber(GetUserByPhone command)
+    {
+        var response = await sender.Send(command);
+
+        return NewResponse(response);
+    }
+
+    [HttpPost("AddAdmin")]
     public async Task<IActionResult> CreateAdmin(CreateAdmin command)
     {
         var response = await sender.Send(command);
 
-        return NewRespnse(response);
+        return NewResponse(response);
     }
 
-    [HttpPost]
-    [Route("AddVendor")]
-    [Authorize(Roles = "Admin")]
+    [HttpPost("AddVendor")]
     public async Task<IActionResult> CreateVendor(CreateVendor command)
     {
         var response = await sender.Send(command);
 
-        return NewRespnse(response);
+        return NewResponse(response);
     }
-
-    [HttpPost]
-    [Route("SignIn")]
-    [EnableRateLimiting(policyName: "SignInLimit")]
-    public async Task<IActionResult> SignIn(SignIn command)
+    [HttpDelete("DeleteUser/{id}")]
+    public async Task<IActionResult> DeleteUser([Required] string id)
     {
-        var response = await sender.Send(command);
+        var response = await sender.Send(new DeleteUser(id));
 
-        return NewRespnse(response);
+        return NewResponse(response);
     }
 
-    [HttpPost]
-    [Route("SignOut")]
-    [Authorize]
-    public async Task<IActionResult> SignOut([Required] string id, [GreaterThanZero] int tNewRespnseenId)
-    {
 
-        var response = await sender.Send(new SignOut(id, tNewRespnseenId));
-
-        return NewRespnse(response);
-    }
-
-    [HttpPost]
-    [Route("RefrehToken")]
-    public async Task<IActionResult> RefrehToken([GreaterThanZero] int id)
-    {
-
-        var response = await sender.Send(new RefreshToken(id));
-
-        return NewRespnse(response);
-    }
-
-    [HttpPost]
-    [Route("SendCodeToReseatPassword")]
-    public async Task<IActionResult> SendCodeToReseatPassword(SendCodeToReseatPassword command)
-    {
-        var response = await sender.Send(command);
-
-        return NewRespnse(response);
-    }
-
-    [HttpPost]
-    [Route("ReseatPassword")]
-    public async Task<IActionResult> ReseatPassword(ReseatPassword command)
-    {
-        var response = await sender.Send(command);
-
-        return NewRespnse(response);
-    }
-
-    [HttpPost]
-    [Route("ChangePassword")]
-    [Authorize]
-    public async Task<IActionResult> ChangePassword(ChangePassword command)
-    {
-        var response = await sender.Send(command);
-
-        return NewRespnse(response);
-    }
 }

@@ -1,12 +1,10 @@
-﻿using Data.Enums;
-
-namespace Core.Features.Rooms.Dtos;
+﻿namespace Core.Features.Rooms.Dtos;
 
 public class GetRoom
 {
     public int Id { get; set; }
-    public RoomType Type { get; set; }
-    public RoomStatus Status { get; set; }
+    public string Type { get; set; }
+    public string Status { get; set; }
     public decimal Area { get; set; }
     public string? Description { get; set; }
     public decimal PricePerNight { get; set; }

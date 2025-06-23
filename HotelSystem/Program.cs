@@ -5,11 +5,11 @@ builder.Configuration
 
 builder.Host.UseSerilog();
 
-builder.Services.AddDataDependancies(builder.Configuration);
+builder.Services.AddData(builder.Configuration);
 
-builder.Services.AddServiceDependencies(builder.Configuration);
+builder.Services.AddService(builder.Configuration);
 
-builder.Services.AddCore();
+builder.Services.AddCore(builder.Configuration);
 
 builder.Services.AddWeb();
 

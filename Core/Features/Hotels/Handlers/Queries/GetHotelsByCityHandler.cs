@@ -1,7 +1,4 @@
-﻿using Core.Features.Hotels.Dto;
-using Core.Features.Hotels.Queries;
-using Services.SpecificationPattern.HotelSpecifications;
-
+﻿
 namespace Core.Features.Hotels.Handlers.Queries;
 
 internal class GetHotelsByCityHandler(

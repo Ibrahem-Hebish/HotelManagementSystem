@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "VdNXE8R7eCvXs9DLy3ZANwqVX3V5M1PAwowHV5Sj1XlBP/QvCBIdU3KPgPWvYxe55yrAk1yU5Q8ab6asIJHwoA==",
+  "dgSpecHash": "ASTWhBpcigthcfyE3yIXcHkSx+CDyzzFsKatri0MyXoFhoseBSUZZahVrGepvY3A1rIltzJLzwWwHVsW2/uBMA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Super magic\\OneDrive\\Desktop\\HotelManagementSystem\\HotelSystem\\HotelSystem.csproj",
   "expectedPackageFiles": [
@@ -16,6 +16,12 @@
     "C:\\Users\\Super magic\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
     "C:\\Users\\Super magic\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "C:\\Users\\Super magic\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
+    "C:\\Users\\Super magic\\.nuget\\packages\\hangfire\\1.8.20\\hangfire.1.8.20.nupkg.sha512",
+    "C:\\Users\\Super magic\\.nuget\\packages\\hangfire.aspnetcore\\1.8.20\\hangfire.aspnetcore.1.8.20.nupkg.sha512",
+    "C:\\Users\\Super magic\\.nuget\\packages\\hangfire.core\\1.8.20\\hangfire.core.1.8.20.nupkg.sha512",
+    "C:\\Users\\Super magic\\.nuget\\packages\\hangfire.dashboard.basic.authentication\\8.0.0\\hangfire.dashboard.basic.authentication.8.0.0.nupkg.sha512",
+    "C:\\Users\\Super magic\\.nuget\\packages\\hangfire.netcore\\1.8.20\\hangfire.netcore.1.8.20.nupkg.sha512",
+    "C:\\Users\\Super magic\\.nuget\\packages\\hangfire.sqlserver\\1.8.20\\hangfire.sqlserver.1.8.20.nupkg.sha512",
     "C:\\Users\\Super magic\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Super magic\\.nuget\\packages\\mailkit\\4.12.0\\mailkit.4.12.0.nupkg.sha512",
     "C:\\Users\\Super magic\\.nuget\\packages\\mapster\\7.4.0\\mapster.7.4.0.nupkg.sha512",

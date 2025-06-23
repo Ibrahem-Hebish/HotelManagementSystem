@@ -1,6 +1,4 @@
-﻿using Core.Features.Hotels.Dto;
-
-namespace Core.Features.Hotels.Queries;
+﻿namespace Core.Features.Hotels.Queries;
 
 public sealed record GetHotelById(int Id) : IRequest<Response<GetHotel>>, ICachedQuery
 {

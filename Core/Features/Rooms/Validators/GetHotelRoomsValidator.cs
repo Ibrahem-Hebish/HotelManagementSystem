@@ -1,5 +1,4 @@
-﻿using Core.Features.Rooms.Queries;
-
+﻿
 namespace Core.Features.Rooms.Validators;
 
 public class GetHotelRoomsValidator : AbstractValidator<GetRoomsByHotelId>

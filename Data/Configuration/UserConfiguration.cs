@@ -10,22 +10,12 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.Property(x => x.Country)
             .HasColumnType("nvarchar(30)");
 
-        builder.HasMany(x => x.Hotels)
-            .WithMany(x => x.Customers)
-            .UsingEntity<HotelEvaluations>(builder => builder
-                                       .HasOne(x => x.Hotel)
-                                       .WithMany(x => x.HotelEvaluations)
-                                       .HasForeignKey(x => x.HotelId),
-                                        builder => builder
-                                       .HasOne(x => x.User)
-                                       .WithMany(x => x.HotelEvaluations)
-                                       .OnDelete(DeleteBehavior.NoAction));
-
-
+        builder.HasIndex(x => x.PhoneNumber)
+            .IsUnique(true);
 
         builder.HasQueryFilter(x => !x.IsDeleted);
 
-        builder.ToTable(nameof(User));
+        builder.ToTable("Users");
     }
 }
 

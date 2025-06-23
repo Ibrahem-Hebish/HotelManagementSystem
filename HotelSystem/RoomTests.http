@@ -44,7 +44,7 @@ GET {{baseUrl}}/Room/ByMinPrice?minPrice=100
 GET {{baseUrl}}/Room/ByStatus?status=0
 
 ### Get Rooms By Type
-GET {{baseUrl}}/Room/ByType?type=1
+GET {{baseUrl}}/Room/ByType?type=0
 
 
 

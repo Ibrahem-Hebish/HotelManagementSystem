@@ -10,8 +10,7 @@ public class Room : IEntity, ISoftDeletable
     public decimal PricePerNight { get; set; }
     public int? DiscountPercentage { get; set; }
     public decimal TotalPrice { get; private set; }
-
-
+    public byte[] RowVersion { get; set; }
     public int HotelId { get; set; }
     [ForeignKey(nameof(HotelId))]
     public Hotel Hotel { get; set; }

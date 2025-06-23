@@ -7,7 +7,7 @@ namespace HotelSystem.Controllers;
 [ApiController]
 public class AppController : ControllerBase
 {
-    protected IActionResult NewRespnse<T>(T response) where T : IResponse
+    protected IActionResult NewResponse<T>(T response) where T : IResponse
     {
         return response.StatusCode switch
         {

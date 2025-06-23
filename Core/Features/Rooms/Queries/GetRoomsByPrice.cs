@@ -1,6 +1,4 @@
-﻿using Core.Features.Rooms.Dtos;
-
-namespace Core.Features.Rooms.Queries;
+﻿namespace Core.Features.Rooms.Queries;
 
 public record GetRoomsByPrice(decimal MinPrice, decimal MaxPrice) : ICachedQuery, IRequest<Response<List<GetRoom>>>
 {

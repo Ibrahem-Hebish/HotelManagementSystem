@@ -1,14 +1,27 @@
-﻿using Core.Features.Facilities.Queries;
-using Core.Features.Hotels;
-using Core.Features.Rooms;
-using Core.Features.Users;
+﻿using Core.Featuress.Customer;
+using Hangfire;
+using Microsoft.Extensions.Configuration;
 
 namespace Core;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddCore(this IServiceCollection services)
+    public static IServiceCollection AddCore(this IServiceCollection services, IConfiguration configuration)
     {
+        var connectionString = configuration.GetRequiredSection("ConnectionString").Value;
+
+        // Configure Hangfire Client
+
+        services.AddHangfire(c =>
+         c.SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
+          .UseSimpleAssemblyNameTypeSerializer()
+          .UseRecommendedSerializerSettings()
+          .UseSqlServerStorage(connectionString)
+          );
+
+        services.AddHangfireServer();
+
+        services.AddScoped<BackGroundJobs>();
 
         services.AddMediatR(opt =>
         {
